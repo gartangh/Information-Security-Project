@@ -23,6 +23,7 @@ Table for sprint 3: (ends on April 26)
 | Content Cell | Content Cell | Content Cell | Content Cell |
 
 Table for sprint 4: (ends on May 10)
+
 | Collaborator | Date | Time | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | Content Cell | Content Cell | Content Cell | Content Cell |
