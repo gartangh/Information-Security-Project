@@ -31,7 +31,7 @@ Table for sprint 3: (ends on April 26)
 
 | Collaborator | Date | Time | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| Content Cell | Content Cell | Content Cell | Content Cell |
+| Garben | April 19 | 45m | Error fixed and start of website. |
 | Content Cell | Content Cell | Content Cell | Content Cell |
 
 Table for sprint 4: (ends on May 10)
