@@ -1,4 +1,16 @@
+# Report
+
 The report can be found on [overleaf](https://www.overleaf.com/6363739574bngwfqkrmnwt).
+
+# Getting Started
+
+* Download [Node.js](https://nodejs.org)
+* Make sure you have the latest version of Node Package Manager (npm) with `npm install npm -g`.
+* Go to the **/website/** directory and run `npm install` to get all dependencies.
+* Start the server with `node server`.
+* Go to **localhost:5000** to check wether everything works.
+
+# Sprint Planning
 
 Table for sprint 1: (ends on March 22)
 
