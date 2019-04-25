@@ -32,7 +32,8 @@ Table for sprint 3: (ends on April 26)
 | Collaborator | Date | Time | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | Garben | April 19 | 45m | Error fixed and start of website. |
-| Thomas | April 20 | 3h 30m | Basic lay-out and styling of website.  |
+| Thomas | April 20 | 3h 30m | Basic lay-out and styling of website. |
+| Garben | April 26 | 30m | Searched for usefull packages in Node.js for security. |
 
 Table for sprint 4: (ends on May 10)
 
