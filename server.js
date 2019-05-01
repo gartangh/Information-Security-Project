@@ -1,9 +1,12 @@
 const { SHA3 } = require('sha3');
 var express = require("express");
+var session = require("express-session");
 var app = express();
+app.set('trust proxy', 1);
 var https = require('https');
 var fs = require('fs');
 const crypto = require('crypto');
+const api = require('./csvapi');
 
 const port = process.env.PORT || 5000;
 const hash = new SHA3();
@@ -28,27 +31,49 @@ app.get("/", function(req, res) {
 });
 
 /* serves all the static files */
-app.get(/^(.+)$/, function(req, res) {
-	console.log('static file request : ' + req.params);
+app.get(/^(.+)$/, function(req, res) {	
+	//console.log('static file request : ' + req.params[0]);
 	res.sendfile( __dirname + req.params[0]);
 });
 
 app.post('/submit-form', (req, res) => {
-	const id = req.body.id
+	console.log('Trying to log in');
+
+	const id = req.body.id;
+	const pin = req.body.pin;
+
+	console.log(id);
+	console.log(pin);
+
 	// Reset hash.
 	hash.reset();
 	// Hash pin, salted by id.
-	hash.update(id).update(req.body.pin);
+	hash.update(pin).update(id);
 	// Hash returned as a hex-encoded string.
 	var hexHash = hash.digest('hex');
-	// Reset hash.
-	hash.reset();
-
+	
 	console.log(hexHash);
 
-	// TODO: Log user in if id and hexHash is correct.
-	if (checkUserCredentials(id, hexHash))
-		res.redirect();
-	else
-		res.end();
+	// Log user in if id and hexHash is correct.
+	if (api.checkUserCredentials(id, hexHash) === true) {
+		console.log('Redirecting')
+		res.redirect('form.html');
+	}
+	else {
+		console.log('Wrong credentials')
+		res.redirect('index.html');
+	}
+
+	app.use(session({
+		secret: hexHash,
+		resave: false,
+		saveUninitialized: true,
+		cookie: { 
+			maxAge: 60000,
+			secure: true
+		}
+	}));
+
+	// Reset hash.
+	hash.reset();
 });
