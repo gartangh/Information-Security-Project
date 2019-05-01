@@ -3,6 +3,7 @@ var express = require("express");
 var session = require("express-session");
 var app = express();
 app.set('trust proxy', 1);
+app.use(express.json());
 var https = require('https');
 var fs = require('fs');
 const crypto = require('crypto');

@@ -151,6 +151,34 @@ const checkVoted = (natreg) => {
   return voted;
 };
 
+function getUserInfo (natreg){
+  return new Promise((resolve, reject) => {
+    fs.createReadStream('data/users.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      if (natreg == row.NationalRegistry){
+        user = {
+          NationalRegistry: row.NationalRegistry,
+          Firstname: row.Firstname,
+          Lastname: row.Lastname,
+        };
+
+        resolve(user);
+      }
+    })
+    .on('end', () => {
+        user = {
+        NationalRegistry: '',
+        Firstname: '',
+        Lastname: '',
+    };
+      resolve(user);
+    });
+
+
+  });
+}
+
 const getParties = () => {
   const parties = [];
   fs.createReadStream('data/voted.csv')
@@ -183,3 +211,4 @@ module.exports.addVote = addVote;
 module.exports.addUser = addUser;
 module.exports.addParty = addParty;
 module.exports.initFiles = initFiles;
+module.exports.getUserInfo = getUserInfo;
