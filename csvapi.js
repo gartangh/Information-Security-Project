@@ -1,6 +1,6 @@
 
 
-const addUser = (natreg,first,last,birth, sex, pass) => {
+const addUser = (natreg,first,last, pass) => {
 	const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 	const csvWriter = createCsvWriter({  
 	  path: 'data/users.csv',
