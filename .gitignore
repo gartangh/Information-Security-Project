@@ -87,3 +87,12 @@ typings/
 node_modules
 
 website/.idea
+website/*.4ct
+website/*.4tc
+website/*.aux
+website/*.dvi
+website/*.ivd
+website/*.lg
+website/*.log
+website/*.tmp
+website/*.xref
