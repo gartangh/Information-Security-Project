@@ -68,6 +68,17 @@ function checkUserCredentials(natreg, pass) {
   });
 }
 
+function checkUserVoted(natreg) {
+  return new Promise((resolve,reject) => {
+    let cred = true;
+    fs.createReadStream('data/voted.csv').pipe(csv()).on('data', (row) => {
+      if (String(row.NationalRegistry) === String(natreg)) {
+        cred = false;
+      }
+    }).on('end', () => {resolve(cred);});
+  });
+}
+
 const addVoter = (natreg) => {
   const csvWriter = createCsvWriter({
     path: 'data/voted.csv',
