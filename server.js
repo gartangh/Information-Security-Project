@@ -77,3 +77,8 @@ app.post('/submit-form', (req, res) => {
 	// Reset hash.
 	hash.reset();
 });
+
+app.post('/vote', (req, res) => {
+	console.log(req)
+});
+
