@@ -350,8 +350,8 @@
 
             }
         }
-        var data = JSON.stringify({natreg: "01406181"});
-        xhr.send(data);
+        xhr.send(null);
+        
 
         // Initialize onclick functions for the different parties
         let elections = document.getElementsByClassName("election");
@@ -417,8 +417,6 @@
         function confirmVote() {
             var vote = {};
 
-            vote["national-registry-number"] = "01406181";
-
             let elections = document.getElementsByClassName("election");
             for (let election of elections) {
                 let parties = election.getElementsByTagName("li");
@@ -432,7 +430,7 @@
                 }
             }
 
-            if (Object.keys(vote).length < 4) {
+            if (Object.keys(vote).length < 3) {
                 empty_elections = "\n\n";
                 if (!vote["national-federal-elections"]) {
                     empty_elections += " -   " + electionIdToString("national-federal-elections") + "\n";
@@ -457,21 +455,18 @@
             var vote_correct = confirm("You selected the following parties for the different elections: " + voted_parties +
             "\nIf you are happy with your selection, confirm your vote below.");
             if (vote_correct) {
+                console.log('IPJZEPIJREZ');
                 xhr = new XMLHttpRequest();
                 var url = "/vote";
                 xhr.open("POST", url, true);
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.onreadystatechange = function () { 
                     if (xhr.readyState == 4 && xhr.status == 200) {
-                        //console.log(xhr.);
+                        window.location.href="/voted.html";
                     }
                 }
                 var data = JSON.stringify(vote);
                 xhr.send(data);
-                return true;
-            }
-            else {
-                return false;
             }
 
             return false;
