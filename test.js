@@ -117,8 +117,3 @@ setTimeout(() => {
 setTimeout(() => {
   api.addParty('blanco', 'Europe');
 }, 17500);
-
-
-setTimeout(() => {
-  api.getUserInfo('01502363').then((value) => {console.log(value)});
-}, 18000);
