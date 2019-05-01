@@ -82,7 +82,11 @@ app.post('/submit-form', (req, res) => {
 });
 
 app.post('/vote', (req, res) => {
-	console.log(req)
-	console.log(res)
+	//console.log(req)
+	console.log(req.body)
+	console.log(req.body['national-federal-elections'])
+	api.addVote(req.body['national-federal-elections'], 'Federal')
+	api.addVote(req.body['regional-elections'], 'Regional')
+	api.addVote(req.body['european-elections'], 'Europe')
 });
 

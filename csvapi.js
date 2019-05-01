@@ -30,8 +30,6 @@ const addUser = (natreg, first, last, pass) => {
   // Hash returned as a hex-encoded string.
   var pass = hash.digest('hex');
   
-  console.log(pass);
-
   const csvWriter = createCsvWriter({
     path: 'data/users.csv',
     header: [
@@ -113,6 +111,7 @@ const addParty = (party, election) => {
 const addVote = (party, election) => {
   const data = [];
   const path = `data/votes${election}.csv`;
+  console.log(party)
   fs.createReadStream(path)
     .pipe(csv())
     .on('data', (row) => {
