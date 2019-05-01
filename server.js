@@ -6,12 +6,12 @@ app.set('trust proxy', 1);
 app.use(express.json());
 app.use(session({
 	secret: "monkey",
-	/*resave: false,
+	resave: false,
 	saveUninitialized: true,
 	cookie: { 
 		maxAge: 60000,
 		secure: true
-	}*/
+	}
 }));
 
 var https = require('https');
@@ -49,11 +49,8 @@ app.get(/^(.+)$/, function(req, res) {
 	console.log('static file request : ' + req.params[0]);
 	var sess = req.session;
 	if(req.params[0] == "/form.html"){
-		console.log(sess);
 		api.checkUserCredentials(sess.nr, sess.hash).then((cred)=>{
-			console.log(cred);
 			if(cred === true){
-				console.log("aaaah");
 				res.sendfile( __dirname + req.params[0]);
 			}else{
 				res.sendfile('index.html');
@@ -120,6 +117,12 @@ app.post('/get-user-info', (req, res) => {
 });
 
 app.post('/vote', (req, res) => {
+	console.log("yolojieo");
+	var sess = req.session;
+	sess.destroy((err) => console.log("helaas"));
+	console.log(sess);
+
+
 	console.log(req.body);
 
 	api.addVoter(req.session.nr);
