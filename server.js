@@ -4,6 +4,16 @@ var session = require("express-session");
 var app = express();
 app.set('trust proxy', 1);
 app.use(express.json());
+app.use(session({
+	secret: "monkey",
+	/*resave: false,
+	saveUninitialized: true,
+	cookie: { 
+		maxAge: 60000,
+		secure: true
+	}*/
+}));
+
 var https = require('https');
 var fs = require('fs');
 const crypto = require('crypto');
@@ -36,8 +46,22 @@ app.get("/", function(req, res) {
 
 /* serves all the static files */
 app.get(/^(.+)$/, function(req, res) {	
-	//console.log('static file request : ' + req.params[0]);
-	res.sendfile( __dirname + req.params[0]);
+	console.log('static file request : ' + req.params[0]);
+	var sess = req.session;
+	if(req.params[0] == "/form.html"){
+		console.log(sess);
+		api.checkUserCredentials(sess.nr, sess.hash).then((cred)=>{
+			console.log(cred);
+			if(cred === true){
+				console.log("aaaah");
+				res.sendfile( __dirname + req.params[0]);
+			}else{
+				res.sendfile('index.html');
+			}
+		})
+	}else{
+		res.sendfile( __dirname + req.params[0]);
+	}
 });
 
 app.post('/submit-form', (req, res) => {
@@ -62,6 +86,8 @@ app.post('/submit-form', (req, res) => {
 	api.checkUserCredentials(id, hexHash).then((cred) => {
 		console.log(cred);
 		if (cred === true) {
+			req.session.nr = id;
+			req.session.hash = hexHash;
 			console.log('Redirecting');
 			res.redirect('form.html');
 		}
@@ -70,16 +96,6 @@ app.post('/submit-form', (req, res) => {
 			res.redirect('index.html');
 		}
 	});
-
-	app.use(session({
-		secret: hexHash,
-		resave: false,
-		saveUninitialized: true,
-		cookie: { 
-			maxAge: 60000,
-			secure: true
-		}
-	}));
 
 	// Reset hash.
 	hash.reset();
