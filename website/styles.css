@@ -6,7 +6,7 @@ h2 {
 }
 
 #main {
-    //background-color: #FBFBFB !important;
+    /* background-color: #FBFBFB !important; */
 }
 
 .content-pre {
@@ -41,13 +41,11 @@ footer {
 
 
 /* LOGIN */
-
 input {
     padding: 10px;
     
     font-size: 14px;
 
-    
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
@@ -75,11 +73,9 @@ div.top-input-box {
     margin-bottom: 20px;
 }
 
-
 /* IDENTITY */
-
 div#identity-boxes {
-    //margin-top: 0 !important;
+    /* margin-top: 0 !important; */
     padding: 0 30px 30px 30px;
 }
 
@@ -114,10 +110,7 @@ input[disabled]:hover {
     color: #566377;
 }
 
-
-
 /* LEFT */
-
 div.submit-box  {
     padding: 0 20px 20px 20px;
 }
@@ -135,7 +128,7 @@ div.submit-box  input[type=submit]{
 }
 
 div.submit-box  input[type=submit]:hover{
-    background-color: #788292;
+    background-color: #566378;
 }
 
 hr {
@@ -146,6 +139,60 @@ hr {
 
 /* RIGHT */
 div#cast-vote-box {
-    padding: 30px;
     background-color: #FBFBFB;
+    border-top: 4px solid #DCDDE1;
+    
+}
+
+div.election-header {
+    background-color: #566378 !important;
+    padding: 30px 30px 15px 30px;
+}
+
+div.election-header h2 {
+    color: white !important;
+    padding: 0
+}
+
+div.election-body {
+    padding: 0
+}
+
+div.party {
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 4px solid #E9E9EB;
+    border-left: 4px solid black;
+}
+
+div.party#open-vld {
+    border-left-color: #365DA8
+}
+div.party#nva {
+    border-left-color: #F2B61C
+}
+div.party#cdv {
+    border-left-color: #FF820A
+}
+div.party#groen {
+    border-left-color: #008379
+}
+div.party#spa {
+    border-left-color: #ED1B23
+}
+
+div.party input[type="radio"] {
+    margin: 0 10px 0 0;
+}
+
+div.party input[type="checkbox"] {
+    margin: 0 15px;
+}
+
+div.party-people {
+    padding-top: 15px !important
+}
+
+div.party-person {
+    padding: 5px 0
 }

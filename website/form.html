@@ -172,7 +172,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"nl\/","ajaxPageSta
                         </ul></nav>
                     <nav id="block-menu-menu-header-dutch-menu" aria-label="Secundaire navigatie" class="block block-menu block-menu block-menu-menu-header-dutch-menu block-navigation block-menu-menu-header-dutch-menu clearfix" data-delta="menu-header-dutch-menu">
                         <ul class="menu"><li class="first leaf"><a href="/nl/nieuws" id="verkiezingen" class="active-trail active"><span><span>Elections 2019</span></span></a></li>
-                            <li class="last leaf"><a href="" class="mybelgium"><span><span>myBelgium</span></span></a></li>
+                            <li class="last leaf"><a href="" class="mybelgium"><span><span>About this project</span></span></a></li>
                         </ul></nav>
                 </div>
             </div>
@@ -243,7 +243,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"nl\/","ajaxPageSta
                             <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
                                 
                                 <div class="views-field views-field-nothing-1 field-picture">        <span class="field-content"><h2 class="title"><a href="/fr/brexit">National federal, regional and European elections 2019</a></h2>
-                                    <a href="/fr/highlights_0"><img typeof="foaf:Image" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Federal_Parliament_of_Belgium%2C_Brussels.jpg" width="470" height="290" style="margin: -50px 0 -125px 0;" alt=""></a></span>  </div>
+                                    <a href="/fr/highlights_0"><img typeof="foaf:Image" src="images/parliament.jpg" width="470" height="290" style="margin: -50px 0 -125px 0;" alt=""></a></span>  </div>
                                 <div class="views-field views-field-body">
                                     <div class="field-content">
                                         <p>Cast your vote for this years national federal, regional and European elections.<br/>
@@ -254,14 +254,134 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"nl\/","ajaxPageSta
                         </div>
                         
                         <div id="cast-vote-box">
-                            <form>
-                            <h2>National federal elections</h2>
-                            <input type="radio">
-                            <h2>Regional elections</h2>
-                            <input type="radio">
-                            <h2>European elections</h2>
-                            <input type="radio">
-                            </form>
+                            <div class="election">
+                                <div class="election-header">
+                                    <h2>National federal elections
+                                </div>
+                                <div class="election-body">
+                                    <div class="party" id="open-vld">
+                                        <form class="party">
+                                            <h3>
+                                                <input type="radio">
+                                                    open vld
+                                                    </h3>
+                                            <div class="party-people">
+                                                <form>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Alexander De Croo
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Katja Gabriëls
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Egbert Lachaert
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="party" id="nva">
+                                        <form class="party">
+                                            <h3>
+                                                <input type="radio">
+                                                    NVA
+                                                    </h3>
+                                            <div class="party-people">
+                                                <form>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Matthias Diependaele
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Sarah Smeyers
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Koen Daniëls
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="party" id="cdv">
+                                        <form class="party">
+                                            <h3>
+                                                <input type="radio">
+                                                    CD&V
+                                                    </h3>
+                                            <div class="party-people">
+                                                <form>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Alexander De Croo
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Katja Gabriëls
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Egbert Lachaert
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="party" id="groen">
+                                        <form class="party">
+                                            <h3>
+                                                <input type="radio">
+                                                    GROEN
+                                                    </h3>
+                                            <div class="party-people">
+                                                <form>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Petra De Sutter
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Bart Staes
+                                                    </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Omar Ba
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="party" id="spa">
+                                        <form class="party">
+                                            <h3>
+                                                <input type="radio">
+                                                    sp.a
+                                                    </h3>
+                                            <div class="party-people">
+                                                <form>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Joris Vandenbroucke
+                                                            </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Anja Vanrobaeys
+                                                            </div>
+                                                    <div class="party-person">
+                                                        <input type="checkbox">
+                                                            Niels Tas
+                                                            </div>
+                                                </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
