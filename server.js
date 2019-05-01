@@ -1,6 +1,8 @@
 const { SHA3 } = require('sha3');
 var express = require("express");
+var session = require("express-session");
 var app = express();
+app.set('trust proxy', 1);
 var https = require('https');
 var fs = require('fs');
 const crypto = require('crypto');
@@ -11,9 +13,9 @@ const hash = new SHA3();
 
 // AES dictionary
 var optionsAES = {
-  key: fs.readFileSync('privatekeyaes.pem'),
-  cert: fs.readFileSync('certificateaes.pem'),
-  passphrase: 'informationsecurity'
+  key: fs.readFileSync('prkeyaes.pem'),
+  cert: fs.readFileSync('ca.crt'),
+  passphrase: 'informationsecurity15'
 };
 
 var httpsServer = https.createServer(optionsAES, app);
@@ -61,6 +63,16 @@ app.post('/submit-form', (req, res) => {
 		console.log('Wrong credentials')
 		res.redirect('index.html');
 	}
+
+	app.use(session({
+		secret: hexHash,
+		resave: false,
+		saveUninitialized: true,
+		cookie: { 
+			maxAge: 60000,
+			secure: true
+		}
+	}));
 
 	// Reset hash.
 	hash.reset();
