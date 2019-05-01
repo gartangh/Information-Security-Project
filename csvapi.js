@@ -4,13 +4,13 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 
 const initFiles = () => {
-  fs.writeFile('data/users.csv', 'nationalRegistry,Firstname,Lastname,Password\n', (err) => {
+  fs.writeFile('data/users.csv', 'NationalRegistry,Firstname,Lastname,Password\n', (err) => {
     if (err) throw err;
   });
   fs.writeFile('data/votes.csv', 'Party,Votes\n', (err) => {
     if (err) throw err;
   });
-  fs.writeFile('data/voted.csv', 'nationalRegistry\n', (err) => {
+  fs.writeFile('data/voted.csv', 'NationalRegistry\n', (err) => {
     if (err) throw err;
   });
 };
