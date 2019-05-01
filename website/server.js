@@ -14,6 +14,10 @@ var options = {
   cert: fs.readFileSync('certificateaes.pem')
 };
 
+const crypto = require('crypto');
+const https = require('https');
+
+
 app.use(express.urlencoded());
 
 /* serves main page */

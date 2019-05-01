@@ -1,0 +1,45 @@
+\section{Countermeasures}
+\label{sec:countermeasures}
+% Which countermeasures have been taken against these attacks?
+\begin{itemize}
+    \item \textbf{Passive attacks}
+    \begin{enumerate}
+        \item Eavesdropping
+        \begin{enumerate}
+            \item Encryption of authentication data and the user's vote.
+        \end{enumerate}
+        
+        \item Traffic analysis
+        \begin{enumerate}
+            \item \textit{Not applicable.}
+        \end{enumerate}
+    \end{enumerate}
+    
+    \item \textbf{Active attacks}
+    \begin{enumerate}
+        \item Message insertion/modification:
+        \begin{enumerate}
+            \item Digital signature of the user.
+        \end{enumerate}
+        
+        \item Impersonation/masquerade:
+        \begin{enumerate}
+            \item Digital signature with private key from eID.
+        \end{enumerate}
+        
+        \item Replay:
+        \begin{enumerate}
+            \item Server-side package dropping based on presence of entry in database.
+        \end{enumerate}
+        
+        \item (Distributed) Denial-of-Service ((D)Dos):
+        \begin{enumerate}
+            \item Use third party service that prevents this issue to redirect traffic to the voting application.
+        \end{enumerate}
+        
+        \item Hijacking (taking over existing connection):
+        \begin{enumerate}
+            \item SSL/TLS certificates used in the HTTPS protocol.
+        \end{enumerate}
+    \end{enumerate}
+\end{itemize}
