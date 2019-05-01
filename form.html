@@ -207,15 +207,15 @@
                     <div id="identity-boxes">
                         <div class="identity-box top-identity-box" >
                             <h3>National registry number:</h3>
-                            <input type="text" value="93051822361" disabled>
+                            <input id="national-registry-number-input" type="text" value="93051822361" disabled>
                         </div>
                         <div class="identity-box">
                             <h3>Last name:</h3>
-                            <input type="text" value="Pauwels" disabled>
+                            <input id="last-name-input"  type="text" value="Pauwels" disabled>
                         </div>
                         <div class="identity-box">
                             <h3>First name:</h3>
-                            <input type="text" value="Michiel" disabled>
+                            <input id="first-name-input" type="text" value="Michiel" disabled>
                         </div>
                     </div>
                     <hr>
@@ -336,12 +336,22 @@
     <div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious" aria-label="Previous"></button><button type="button" id="cboxNext" aria-label="Volgende"></button><button type="button" id="cboxSlideshow" aria-label="Slideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body>
 
     <script type="text/javascript">
-        /*var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "/getUserInfo", false ); // false for synchronous request
-        xmlHttp.send(null);
-        var data = xmlHttp.responseText;
-        // Write to text fields
-        console.log(data);*/
+        xhr = new XMLHttpRequest();
+        var url = "/get-user-info";
+        xhr.open("POST", url, false);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var id_json =  JSON.parse(xhr.responseText);
+                
+                document.getElementById("national-registry-number-input").setAttribute("value", id_json["nationalRegistryNumber"]);
+                document.getElementById("last-name-input").setAttribute("value", id_json["lastName"]);
+                document.getElementById("first-name-input").setAttribute("value", id_json["firstName"]);
+
+            }
+        }
+        var data = JSON.stringify({natreg: "01406181"});
+        xhr.send(data);
 
         // Initialize onclick functions for the different parties
         let elections = document.getElementsByClassName("election");

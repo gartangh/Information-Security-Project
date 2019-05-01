@@ -62,12 +62,20 @@ app.post('/submit-form', (req, res) => {
 	api.checkUserCredentials(id, hexHash).then((cred) => {
 		console.log(cred);
 		if (cred === true) {
-			console.log('Redirecting');
-			res.redirect('form.html');
+			api.checkUserVoted(id).then((voted) => {
+				if (voted === false) {
+					console.log('Redirecting');
+					res.redirect('form.html');
+				}
+				else {
+					console.log('User already voted');
+					res.send('<script>alert("The entered credentials have already been used to voted. You can only vote once."); window.location.href="/index.html";</script>');
+					res.redirect('index.html');
+				}
+			});
 		}
 		else {
-			console.log('Wrong credentials');
-			res.redirect('index.html');
+			res.send('<script>alert("The entered credentials do not match an entitled voter. Please check if the entered national registry number and pincode are correct and try again."); window.location.href="/index.html";</script>');
 		}
 	});
 
@@ -85,9 +93,17 @@ app.post('/submit-form', (req, res) => {
 	hash.reset();
 });
 
+app.post('/get-user-info', (req, res) => {
+	console.log(req.body);
+	api.getUserInfo(req.body["natreg"]).then((user) => {
+		console.log(user);
+		res.send(user);
+	});
+});
+
 app.post('/vote', (req, res) => {
 	console.log(req.body);
-	api.addVoter(req.body['national-registry-number'])
+	api.addVoter(req.body['national-registry-number']);
 	api.addVote(req.body['national-federal-elections'], 'Federal');
 	api.addVote(req.body['regional-elections'], 'Regional');
 	api.addVote(req.body['european-elections'], 'Europe');

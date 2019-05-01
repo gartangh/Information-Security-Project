@@ -70,12 +70,12 @@ function checkUserCredentials(natreg, pass) {
 
 function checkUserVoted(natreg) {
   return new Promise((resolve,reject) => {
-    let cred = true;
+    let voted = false;
     fs.createReadStream('data/voted.csv').pipe(csv()).on('data', (row) => {
       if (String(row.NationalRegistry) === String(natreg)) {
-        cred = false;
+        voted = true;
       }
-    }).on('end', () => {resolve(cred);});
+    }).on('end', () => {resolve(voted);});
   });
 }
 
@@ -169,9 +169,9 @@ function getUserInfo (natreg){
     .on('data', (row) => {
       if (natreg == row.NationalRegistry){
         user = {
-          NationalRegistry: row.NationalRegistry,
-          Firstname: row.Firstname,
-          Lastname: row.Lastname,
+          nationalRegistryNumber: row.NationalRegistry,
+          firstName: row.Firstname,
+          lastName: row.Lastname,
         };
 
         resolve(user);
@@ -214,6 +214,7 @@ const getResults = () => {
 };
 
 module.exports.checkUserCredentials = checkUserCredentials;
+module.exports.checkUserVoted = checkUserVoted;
 module.exports.getResults = getResults;
 module.exports.getParties = getParties;
 module.exports.checkVoted = checkVoted;
