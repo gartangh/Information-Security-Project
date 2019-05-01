@@ -54,23 +54,20 @@ const addUser = (natreg, first, last, pass) => {
     .writeRecords(data);
 };
 
-async function checkUserCredentials(natreg, pass) {
-  await fs.createReadStream('data/users.csv')
-    .pipe(csv())
-    .on('data', (row) => {
-      console.log(natreg);
-      console.log(row.NationalRegistry);
-      console.log(pass);
-      console.log(row.Password);
+
+function checkUserCredentials(natreg, pass) {
+  return new Promise((resolve,reject) => {
+    let cred = false;
+    fs.createReadStream('data/users.csv').pipe(csv()).on('data', (row) => {
       if (String(row.NationalRegistry) === String(natreg)) {
-        console.log('Correct id');
+        console.log('Id correct');
         if (String(row.Password) === String(pass)) {
-          console.log('Correct password');
-          return true;
+          console.log('Pin correct');
+          cred = true;
         }
       }
-    });
-  return false;
+    }).on('end', () => {resolve(cred);});
+  });
 }
 
 const addVoter = (natreg) => {
