@@ -85,3 +85,16 @@ typings/
 
 # node_modules
 node_modules
+
+website/chapters/
+website/.idea
+website/*.4ct
+website/*.4tc
+website/*.aux
+website/*.dvi
+website/*.ivd
+website/*.lg
+website/*.log
+website/*.tex
+website/*.tmp
+website/*.xref

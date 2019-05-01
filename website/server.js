@@ -1,6 +1,10 @@
 var express = require("express");
 var app = express();
 
+const crypto = require('crypto');
+const https = require('https');
+
+
 app.use(express.urlencoded());
 
 /* serves main page */

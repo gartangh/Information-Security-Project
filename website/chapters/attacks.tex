@@ -1,0 +1,48 @@
+\section{Attacks}
+\label{sec:attacks}
+% Against which attacks should these security services protect the system?
+
+\begin{itemize}
+    \item \textbf{Passive attacks}
+    \begin{enumerate}
+        \item Eavesdropping
+        \begin{enumerate}
+            \item A third party wants to leak the current intermediate election results to influence the further voting process.
+        \end{enumerate}
+        
+        \item Traffic analysis
+        \begin{enumerate}
+            \item \textit{Not applicable.}
+        \end{enumerate}
+    \end{enumerate}
+    
+    \item \textbf{Active attacks}
+    \begin{enumerate}
+        \item Message insertion/modification:
+        \begin{enumerate}
+            \item A third party want to change votes to a certain political party.
+        \end{enumerate}
+        
+        \item Impersonation/masquerade:
+        \begin{enumerate}
+            \item A third party want to repeat votes on a certain political party.
+            \item A third party want to reduce the votes for certain political parties.
+        \end{enumerate}
+        
+        \item Replay:
+        \begin{enumerate}
+            \item A third party want to repeat votes on a certain political party.
+        \end{enumerate}
+        
+        \item (Distributed) Denial-of-Service ((D)Dos):
+        \begin{enumerate}
+            \item A third party wants to boycott the elections.
+        \end{enumerate}
+        
+        \item Hijacking (taking over existing connection):
+        \begin{enumerate}
+            \item Man-in-the-middle (MITM) attacks: a third party pretends to be the voting website to vote with the visitors credentials.
+            \item Man-in-the-browser (MITB) attacks: malware that attacks the website in the user's browser.
+        \end{enumerate}
+    \end{enumerate}
+\end{itemize}
