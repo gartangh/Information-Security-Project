@@ -35,87 +35,87 @@ setTimeout(() => {
 // Parties
 // (name, election)
 // open-vld; groen; vlaams-belang; n-va; pvda; cd-v; sp-a; volt; uf; blanco
-// national-federal-elections; regional-elections; european-elections
+// Federal; Regional; Europe
 setTimeout(() => {
-  api.addParty('cd-v', 'national-federal-elections');
+  api.addParty('cd-v', 'Federal');
 }, 5000);
 setTimeout(() => {
-  api.addParty('groen', 'national-federal-elections');
+  api.addParty('groen', 'Federal');
 }, 5500);
 setTimeout(() => {
-  api.addParty('n-va', 'national-federal-elections');
+  api.addParty('n-va', 'Federal');
 }, 6000);
 setTimeout(() => {
-  api.addParty('open-vld', 'national-federal-elections');
+  api.addParty('open-vld', 'Federal');
 }, 6500);
 setTimeout(() => {
-  api.addParty('pvda', 'national-federal-elections');
+  api.addParty('pvda', 'Federal');
 }, 7000);
 setTimeout(() => {
-  api.addParty('sp-a', 'national-federal-elections');
+  api.addParty('sp-a', 'Federal');
 }, 7500);
 setTimeout(() => {
-  api.addParty('vlaams-belang', 'national-federal-elections');
+  api.addParty('vlaams-belang', 'Federal');
 }, 8000);
 setTimeout(() => {
-  api.addParty('blanco', 'national-federal-elections');
+  api.addParty('blanco', 'Federal');
 }, 8500);
 
 setTimeout(() => {
-  api.addParty('groen', 'regional-elections');
+  api.addParty('groen', 'Regional');
 }, 9000);
 setTimeout(() => {
-  api.addParty('vlaams-belang', 'regional-elections');
+  api.addParty('vlaams-belang', 'Regional');
 }, 9500);
 setTimeout(() => {
-  api.addParty('open-vld', 'regional-elections');
+  api.addParty('open-vld', 'Regional');
 }, 10000);
 setTimeout(() => {
-  api.addParty('uf', 'regional-elections');
+  api.addParty('uf', 'Regional');
 }, 10500);
 setTimeout(() => {
-  api.addParty('sp-a', 'regional-elections');
+  api.addParty('sp-a', 'Regional');
 }, 11000);
 setTimeout(() => {
-  api.addParty('n-va', 'regional-elections');
+  api.addParty('n-va', 'Regional');
 }, 11500);
 setTimeout(() => {
-  api.addParty('cd-v', 'regional-elections');
+  api.addParty('cd-v', 'Regional');
 }, 12000);
 setTimeout(() => {
-  api.addParty('pvda', 'regional-elections');
+  api.addParty('pvda', 'Regional');
 }, 12500);
 setTimeout(() => {
-  api.addParty('blanco', 'regional-elections');
+  api.addParty('blanco', 'Regional');
 }, 13000);
 
 
 setTimeout(() => {
-  api.addParty('open-vld', 'european-elections');
+  api.addParty('open-vld', 'Europe');
 }, 13500);
 setTimeout(() => {
-  api.addParty('n-va', 'european-elections');
+  api.addParty('n-va', 'Europe');
 }, 14000);
 setTimeout(() => {
-  api.addParty('vlaams-belang', 'european-elections');
+  api.addParty('vlaams-belang', 'Europe');
 }, 14500);
 setTimeout(() => {
-  api.addParty('pvda', 'european-elections');
+  api.addParty('pvda', 'Europe');
 }, 15000);
 setTimeout(() => {
-  api.addParty('cd-v', 'european-elections');
+  api.addParty('cd-v', 'Europe');
 }, 15500);
 setTimeout(() => {
-  api.addParty('groen', 'european-elections');
+  api.addParty('groen', 'Europe');
 }, 16000);
 setTimeout(() => {
-  api.addParty('sp-a', 'european-elections');
+  api.addParty('sp-a', 'Europe');
 }, 16500);
 setTimeout(() => {
-  api.addParty('volt', 'european-elections');
+  api.addParty('volt', 'Europe');
 }, 17000);
 setTimeout(() => {
-  api.addParty('blanco', 'european-elections');
+  api.addParty('blanco', 'Europe');
 }, 17500);
 
 
