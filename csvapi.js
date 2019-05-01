@@ -30,7 +30,7 @@ const addUser = (natreg, first, last, pass) => {
   // Hash returned as a hex-encoded string.
   var pass = hash.digest('hex');
   
-  console.log(pass);
+  //console.log(pass);
 
   const csvWriter = createCsvWriter({
     path: 'data/users.csv',
@@ -155,6 +155,34 @@ const checkVoted = (natreg) => {
   return voted;
 };
 
+async function getUserInfo (natreg){
+  await fs.createReadStream('data/users.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      if (natreg == row.NationalRegistry){
+        console.log(row.NationalRegistry);
+        console.log(row.Firstname);
+        console.log(row.Lastname);
+
+        user = {
+          NationalRegistry: row.NationalRegistry,
+          Firstname: row.Firstname,
+          Lastname: row.Lastname,
+        };
+
+        return user;
+      }
+    });
+
+  user = {
+    NationalRegistry: '',
+    Firstname: '',
+    Lastname: '',
+  };
+
+  return user;
+}
+
 const getParties = () => {
   const parties = [];
   fs.createReadStream('data/voted.csv')
@@ -187,3 +215,4 @@ module.exports.addVote = addVote;
 module.exports.addUser = addUser;
 module.exports.addParty = addParty;
 module.exports.initFiles = initFiles;
+module.exports.getUserInfo = getUserInfo;

@@ -117,3 +117,8 @@ setTimeout(() => {
 setTimeout(() => {
   api.addParty('blanco', 'european-elections');
 }, 17500);
+
+
+setTimeout(() => {
+  console.log(api.getUserInfo('01502363'));
+}, 18000);
