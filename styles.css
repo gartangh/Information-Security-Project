@@ -127,8 +127,9 @@ div.submit-box  input[type=submit]{
     float: right;
 }
 
-div.submit-box  input[type=submit]:hover{
-    background-color: #566378;
+
+div.submit-box div.submit-box:hover{
+    background-color: #566378 !important;
 }
 
 hr {
@@ -195,6 +196,11 @@ ul.parties li {
 ul.parties li:active, li:focus {
     border: none;
     padding-top: 47px;
+}
+
+ul.parties li[selected="true"] {
+    border: none !important;
+    padding-top: 47px !important;
 }
 
 li#open-vld {

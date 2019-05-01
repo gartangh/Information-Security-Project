@@ -7,7 +7,13 @@ const initFiles = () => {
   fs.writeFile('data/users.csv', 'NationalRegistry,Firstname,Lastname,Password\n', (err) => {
     if (err) throw err;
   });
-  fs.writeFile('data/votes.csv', 'Party,Votes\n', (err) => {
+  fs.writeFile('data/votesRegional.csv', 'Party,Votes\n', (err) => {
+    if (err) throw err;
+  });
+  fs.writeFile('data/votesFederal.csv', 'Party,Votes\n', (err) => {
+    if (err) throw err;
+  });
+  fs.writeFile('data/votesEurope.csv', 'Party,Votes\n', (err) => {
     if (err) throw err;
   });
   fs.writeFile('data/voted.csv', 'NationalRegistry\n', (err) => {
@@ -38,19 +44,19 @@ const addUser = (natreg, first, last, pass) => {
     .writeRecords(data);
 };
 
-const checkUserCredentials = (natreg, pass) => {
+async function checkUserCredentials(natreg, pass) {
   let cred = false;
-  fs.createReadStream('data/users.csv')
+  await fs.createReadStream('data/users.csv')
     .pipe(csv())
     .on('data', (row) => {
-      if (row.NationalRegistry === natreg) {
-        if (row.pass === pass) {
+      if (String(row.NationalRegistry) === String(natreg)) {
+        if (String(row.Password) === String(pass)) {
           cred = true;
         }
       }
     });
   return cred;
-};
+}
 
 const addVoter = (natreg) => {
   const csvWriter = createCsvWriter({
@@ -69,9 +75,10 @@ const addVoter = (natreg) => {
     .writeRecords(data);
 };
 
-const addParty = (party) => {
+const addParty = (party, election) => {
+  const path = `data/votes${election}.csv`;
   const csvWriter = createCsvWriter({
-    path: 'data/votes.csv',
+    path,
     header: [
       { id: 'party', title: 'Party' },
       { id: 'votes', title: 'Votes' },
@@ -88,9 +95,10 @@ const addParty = (party) => {
     .writeRecords(data);
 };
 
-const addVote = (party) => {
+const addVote = (party, election) => {
   const data = [];
-  fs.createReadStream('data/votes.csv')
+  const path = `data/votes${election}.csv`;
+  fs.createReadStream(path)
     .pipe(csv())
     .on('data', (row) => {
       if (row.Party === party) {
@@ -107,7 +115,7 @@ const addVote = (party) => {
     })
     .on('end', () => {
       const csvWriter = createCsvWriter({
-        path: 'data/votes.csv',
+        path,
         header: [
           { id: 'party', title: 'Party' },
           { id: 'votes', title: 'Votes' },
