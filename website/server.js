@@ -1,10 +1,12 @@
+const { SHA3 } = require('sha3');
 var express = require("express");
 var app = express();
 var https = require('https');
 var fs = require('fs');
-
-
+const crypto = require('crypto');
 const NodeRSA = require('node-rsa');
+
+const hash = new SHA3();
 const key = new NodeRSA({b: 4096});
 
 
@@ -14,10 +16,6 @@ var options = {
   cert: fs.readFileSync('certificateaes.pem')
 };
 
-const crypto = require('crypto');
-const https = require('https');
-
-
 app.use(express.urlencoded());
 
 /* serves main page */
@@ -26,25 +24,32 @@ app.get("/", function(req, res) {
 });
 
 /* serves all the static files */
-app.get(/^(.+)$/, function(req, res) { 
+app.get(/^(.+)$/, function(req, res) {
 	console.log('static file request : ' + req.params);
 	res.sendfile( __dirname + req.params[0]);
 });
 
 app.post('/submit-form', (req, res) => {
-	const nr = req.body.nr;
-	const pin = req.body.pin;
-	// ...
-	console.log(nr);
-	console.log(pin);
-	res.end();
+	const id = req.body.id
+	// Reset hash.
+	hash.reset();
+	// Hash pin, salted by id.
+	hash.update(id).update(req.body.pin);
+	// Hash returned as a hex-encoded string.
+	var hexHash = hash.digest('hex');
+	// Reset hash.
+	hash.reset();
+
+	console.log(hexHash);
+
+	// TODO: Log user in if id and hexHash is correct.
+	if (checkUserCredentials(id, hexHash))
+		res.redirect();
+	else
+		res.end();
 });
 
 var port = process.env.PORT || 5000;
-/*app.listen(port, function() {
-	console.log("Listening on " + port);
-});*/
-
 https.createServer(options, app).listen(port, function() {
 	console.log("Listening on " + port);
-})	;
+});
