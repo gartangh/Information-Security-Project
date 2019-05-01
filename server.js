@@ -77,4 +77,3 @@ app.post('/submit-form', (req, res) => {
 	// Reset hash.
 	hash.reset();
 });
-
