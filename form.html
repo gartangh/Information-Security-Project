@@ -203,7 +203,7 @@
                 </div>
                 
                 <!-- LOGIN PAGE -->
-                <form onSubmit="return confirmVote();">
+                <form action="/voted.html" method="GET" onSubmit="return confirmVote();">
                     <div id="identity-boxes">
                         <div class="identity-box top-identity-box" >
                             <h3>National registry number:</h3>
@@ -336,12 +336,12 @@
     <div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious" aria-label="Previous"></button><button type="button" id="cboxNext" aria-label="Volgende"></button><button type="button" id="cboxSlideshow" aria-label="Slideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body>
 
     <script type="text/javascript">
-        var xmlHttp = new XMLHttpRequest();
+        /*var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "/getUserInfo", false ); // false for synchronous request
         xmlHttp.send(null);
         var data = xmlHttp.responseText;
         // Write to text fields
-        console.log(data);
+        console.log(data);*/
 
         // Initialize onclick functions for the different parties
         let elections = document.getElementsByClassName("election");
@@ -407,6 +407,8 @@
         function confirmVote() {
             var vote = {};
 
+            vote["national-registry-number"] = "01406181";
+
             let elections = document.getElementsByClassName("election");
             for (let election of elections) {
                 let parties = election.getElementsByTagName("li");
@@ -420,7 +422,7 @@
                 }
             }
 
-            if (Object.keys(vote).length != 3) {
+            if (Object.keys(vote).length < 4) {
                 empty_elections = "\n\n";
                 if (!vote["national-federal-elections"]) {
                     empty_elections += " -   " + electionIdToString("national-federal-elections") + "\n";
@@ -451,13 +453,12 @@
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.onreadystatechange = function () { 
                     if (xhr.readyState == 4 && xhr.status == 200) {
-                        var json = JSON.parse(xhr.responseText);
-                        console.log(JSON.strifify(json))
+                        //console.log(xhr.);
                     }
                 }
                 var data = JSON.stringify(vote);
                 xhr.send(data);
-                return false;
+                return true;
             }
             else {
                 return false;
