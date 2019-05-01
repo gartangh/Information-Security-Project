@@ -34,46 +34,86 @@ setTimeout(() => {
 
 // Parties
 // (name, election)
+// open-vld; groen; vlaams-belang; n-va; pvda; cd-v; sp-a; volt; uf; blanco
+// national-federal-elections; regional-elections; european-elections
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('cd-v', 'national-federal-elections');
 }, 5000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('groen', 'national-federal-elections');
 }, 5500);
-/*
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('n-va', 'national-federal-elections');
 }, 6000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('open-vld', 'national-federal-elections');
 }, 6500);
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('pvda', 'national-federal-elections');
 }, 7000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('sp-a', 'national-federal-elections');
 }, 7500);
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('vlaams-belang', 'national-federal-elections');
 }, 8000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('blanco', 'national-federal-elections');
 }, 8500);
+
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('groen', 'regional-elections');
 }, 9000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('vlaams-belang', 'regional-elections');
 }, 9500);
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('open-vld', 'regional-elections');
 }, 10000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
+  api.addParty('uf', 'regional-elections');
 }, 10500);
 setTimeout(() => {
-  api.addParty('groen', 'Federal');
+  api.addParty('sp-a', 'regional-elections');
 }, 11000);
 setTimeout(() => {
-  api.addParty('vlaams belang', 'Federal');
-}, 11500);*/
+  api.addParty('n-va', 'regional-elections');
+}, 11500);
+setTimeout(() => {
+  api.addParty('cd-v', 'regional-elections');
+}, 12000);
+setTimeout(() => {
+  api.addParty('pvda', 'regional-elections');
+}, 12500);
+setTimeout(() => {
+  api.addParty('blanco', 'regional-elections');
+}, 13000);
+
+
+setTimeout(() => {
+  api.addParty('open-vld', 'european-elections');
+}, 13500);
+setTimeout(() => {
+  api.addParty('n-va', 'european-elections');
+}, 14000);
+setTimeout(() => {
+  api.addParty('vlaams-belang', 'european-elections');
+}, 14500);
+setTimeout(() => {
+  api.addParty('pvda', 'european-elections');
+}, 15000);
+setTimeout(() => {
+  api.addParty('cd-v', 'european-elections');
+}, 15500);
+setTimeout(() => {
+  api.addParty('groen', 'european-elections');
+}, 16000);
+setTimeout(() => {
+  api.addParty('sp-a', 'european-elections');
+}, 16500);
+setTimeout(() => {
+  api.addParty('volt', 'european-elections');
+}, 17000);
+setTimeout(() => {
+  api.addParty('blanco', 'european-elections');
+}, 17500);
