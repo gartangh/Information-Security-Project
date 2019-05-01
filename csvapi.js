@@ -1,7 +1,8 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-
+const { SHA3 } = require('sha3');
+const hash = new SHA3();
 
 const initFiles = () => {
   fs.writeFile('data/users.csv', 'NationalRegistry,Firstname,Lastname,Password\n', (err) => {
@@ -22,6 +23,15 @@ const initFiles = () => {
 };
 
 const addUser = (natreg, first, last, pass) => {
+  // Reset hash.
+  hash.reset();
+  // Hash pin, salted by id.
+  hash.update(pass).update(natreg);
+  // Hash returned as a hex-encoded string.
+  var pass = hash.digest('hex');
+  
+  console.log(pass);
+
   const csvWriter = createCsvWriter({
     path: 'data/users.csv',
     header: [
@@ -45,17 +55,22 @@ const addUser = (natreg, first, last, pass) => {
 };
 
 async function checkUserCredentials(natreg, pass) {
-  let cred = false;
   await fs.createReadStream('data/users.csv')
     .pipe(csv())
     .on('data', (row) => {
+      console.log(natreg);
+      console.log(row.NationalRegistry);
+      console.log(pass);
+      console.log(row.Password);
       if (String(row.NationalRegistry) === String(natreg)) {
+        console.log('Correct id');
         if (String(row.Password) === String(pass)) {
-          cred = true;
+          console.log('Correct password');
+          return true;
         }
       }
     });
-  return cred;
+  return false;
 }
 
 const addVoter = (natreg) => {
