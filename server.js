@@ -23,7 +23,10 @@ httpsServer.listen(port, function() {
 	console.log("Listening on " + port);
 });
 
+const bodyParser = require('body-parser');
 app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 /* serves main page */
 app.get("/", function(req, res) {
@@ -80,5 +83,6 @@ app.post('/submit-form', (req, res) => {
 
 app.post('/vote', (req, res) => {
 	console.log(req)
+	console.log(res)
 });
 
