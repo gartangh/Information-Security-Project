@@ -30,11 +30,6 @@ const addUser = (natreg, first, last, pass) => {
   // Hash returned as a hex-encoded string.
   var pass = hash.digest('hex');
   
-<<<<<<< HEAD
-  //console.log(pass);
-
-=======
->>>>>>> be46a56a60273fc87f0531833e6dc9d252c81230
   const csvWriter = createCsvWriter({
     path: 'data/users.csv',
     header: [
@@ -156,32 +151,32 @@ const checkVoted = (natreg) => {
   return voted;
 };
 
-async function getUserInfo (natreg){
-  await fs.createReadStream('data/users.csv')
+function getUserInfo (natreg){
+  return new Promise((resolve, reject) => {
+    fs.createReadStream('data/users.csv')
     .pipe(csv())
     .on('data', (row) => {
       if (natreg == row.NationalRegistry){
-        console.log(row.NationalRegistry);
-        console.log(row.Firstname);
-        console.log(row.Lastname);
-
         user = {
           NationalRegistry: row.NationalRegistry,
           Firstname: row.Firstname,
           Lastname: row.Lastname,
         };
 
-        return user;
+        resolve(user);
       }
+    })
+    .on('end', () => {
+        user = {
+        NationalRegistry: '',
+        Firstname: '',
+        Lastname: '',
+    };
+      resolve(user);
     });
 
-  user = {
-    NationalRegistry: '',
-    Firstname: '',
-    Lastname: '',
-  };
 
-  return user;
+  });
 }
 
 const getParties = () => {

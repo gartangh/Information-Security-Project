@@ -120,5 +120,5 @@ setTimeout(() => {
 
 
 setTimeout(() => {
-  console.log(api.getUserInfo('01502363'));
+  api.getUserInfo('01502363').then((value) => {console.log(value)});
 }, 18000);
