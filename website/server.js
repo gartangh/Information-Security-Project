@@ -1,6 +1,8 @@
 const { SHA3 } = require('sha3');
 var express = require("express");
+var session = require('express-session');
 var app = express();
+app.set('trust proxy', 1);
 var https = require('https');
 var fs = require('fs');
 const crypto = require('crypto');
@@ -47,6 +49,15 @@ app.post('/submit-form', (req, res) => {
 	console.log(hexHash);
 
 	// TODO: Log user in if id and hexHash is correct.
+	app.use(session({
+		secret: hexHash,
+		resave: false,
+		saveUninitialized: true,
+		cookie: { 
+			maxAge: 60000,
+			secure: true
+		}
+	}))
 	if (checkUserCredentials(id, hexHash))
 		res.redirect();
 	else
