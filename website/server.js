@@ -1,5 +1,18 @@
 var express = require("express");
 var app = express();
+var https = require('https');
+var fs = require('fs');
+
+
+const NodeRSA = require('node-rsa');
+const key = new NodeRSA({b: 4096});
+
+
+// This line is from the Node.js HTTPS documentation.
+var options = {
+  key: fs.readFileSync('privatekeyaes.pem'),
+  cert: fs.readFileSync('certificateaes.pem')
+};
 
 app.use(express.urlencoded());
 
@@ -24,6 +37,10 @@ app.post('/submit-form', (req, res) => {
 });
 
 var port = process.env.PORT || 5000;
-app.listen(port, function() {
+/*app.listen(port, function() {
 	console.log("Listening on " + port);
-});
+});*/
+
+https.createServer(options, app).listen(port, function() {
+	console.log("Listening on " + port);
+})	;
