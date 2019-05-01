@@ -48,7 +48,7 @@ app.post('/submit-form', (req, res) => {
 	// Reset hash.
 	hash.reset();
 	// Hash pin, salted by id.
-	hash.update(id).update(pin);
+	hash.update(pin).update(id);
 	// Hash returned as a hex-encoded string.
 	var hexHash = hash.digest('hex');
 	
