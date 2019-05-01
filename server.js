@@ -91,5 +91,7 @@ app.post('/vote', (req, res) => {
 	api.addVote(req.body['national-federal-elections'], 'Federal')
 	api.addVote(req.body['regional-elections'], 'Regional')
 	api.addVote(req.body['european-elections'], 'Europe')
+	res.redirect('voted.html');
+
 });
 
