@@ -38,6 +38,20 @@ const addUser = (natreg, first, last, pass) => {
     .writeRecords(data);
 };
 
+const checkUserCredentials = (natreg, pass) => {
+  let cred = false;
+  fs.createReadStream('data/users.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      if (row.NationalRegistry === natreg) {
+        if (row.pass === pass) {
+          cred = true;
+        }
+      }
+    });
+  return cred;
+};
+
 const addVoter = (natreg) => {
   const csvWriter = createCsvWriter({
     path: 'data/voted.csv',
@@ -141,7 +155,7 @@ const getResults = () => {
   return results;
 };
 
-
+module.exports.checkUserCredentials = checkUserCredentials;
 module.exports.getResults = getResults;
 module.exports.getParties = getParties;
 module.exports.checkVoted = checkVoted;
