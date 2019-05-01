@@ -3,7 +3,6 @@ var express = require("express");
 var app = express();
 var https = require('https');
 var fs = require('fs');
-<<<<<<< HEAD
 const crypto = require('crypto');
 const NodeRSA = require('node-rsa');
 
