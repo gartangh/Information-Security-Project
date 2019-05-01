@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\graphicspath{ {./images} }
+\usepackage[numbers]{natbib}
+\bibliographystyle{IEEEtranN}
+
+\title{Securing Web-based Electronic Elections}
+\author{Bram De Smet \\ \small Bram.DeSmet@UGent.be \and Robbe De Vilder \\ \small Robbe.DeVilder@UGent.be \and Jaime Roelandts \\ \small Jaime.Roelandts@UGent.be \and Garben Tanghe \\ \small Garben.Tanghe@UGent.be \and Thomas Uyttenhove \\ \small Thomas.Uyttenhove@UGent.be \and Olivier Van den Nest \\ \small Olivier.VandenNest@UGent.be}
+\date{\today}
+
+% Documents
+\begin{document}
+
+% Title
+\maketitle
+
+\newpage
+
+% Abstract
+\begin{abstract}
+\noindent
+One might have noticed that Belgian politicians are currently in ``election mode''. End of May 2019, the masses will set direction towards an Electoral Office to cast their vote. People need to volunteer to supervise the correct voting procedures, and all votes are manually counted. All of these procedures currently deployed might seem like a task screaming for automation and benefiting from a web-based approach.
+
+\medskip
+\noindent
+However, it is key to thoroughly analyze the viability of such a system first. Your task is to investigate what it would take, if at all possible, to implement a web-based electronic voting system in a secure, fair and democratic manner. The goal of this assignment is to focus on the security aspects of online elections, and the arguments against or in favour of such an approach in comparison to the traditional voting process.
+\end{abstract}
+
+% Table of contents
+\tableofcontents
+
+\newpage
+\input{chapters/introduction}
+\input{chapters/services}
+\input{chapters/attacks}
+\input{chapters/countermeasures}
+\input{chapters/limitations_vulnerabilities}
+\input{chapters/security_mechanisms}
+\input{chapters/conclusion}
+
+% Bibliography
+\phantomsection
+\nocite{*}
+\addcontentsline{toc}{section}{References}
+\bibliography{references}
+% Do not forget to mention the sources of your inspiration in the references.
+
+\end{document}
