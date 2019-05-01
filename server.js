@@ -10,9 +10,9 @@ const hash = new SHA3();
 
 // AES dictionary
 var optionsAES = {
-  key: fs.readFileSync('privatekeyaes.pem'),
-  cert: fs.readFileSync('certificateaes.pem'),
-  passphrase: 'informationsecurity'
+  key: fs.readFileSync('prkeyaes.pem'),
+  cert: fs.readFileSync('ca.crt'),
+  passphrase: 'informationsecurity15'
 };
 
 var httpsServer = https.createServer(optionsAES, app);
