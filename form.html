@@ -442,7 +442,6 @@
             var vote_correct = confirm("You selected the following parties for the different elections: " + voted_parties +
             "\nIf you are happy with your selection, confirm your vote below.");
             if (vote_correct) {
-
                 xhr = new XMLHttpRequest();
                 var url = "/vote";
                 xhr.open("POST", url, true);
@@ -450,11 +449,13 @@
                 xhr.onreadystatechange = function () { 
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         var json = JSON.parse(xhr.responseText);
-                        console.log(json)
+                        console.log(JSON.strifify(json))
                     }
                 }
                 var data = JSON.stringify(vote);
+                console.log(data);
                 xhr.send(data);
+                return false;
             }
             else {
                 return false;
