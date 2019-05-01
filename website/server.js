@@ -3,18 +3,25 @@ var express = require("express");
 var app = express();
 var https = require('https');
 var fs = require('fs');
+<<<<<<< HEAD
 const crypto = require('crypto');
 const NodeRSA = require('node-rsa');
 
+const port = process.env.PORT || 5000;
 const hash = new SHA3();
 const key = new NodeRSA({b: 4096});
-
 
 // This line is from the Node.js HTTPS documentation.
 var options = {
   key: fs.readFileSync('privatekeyaes.pem'),
-  cert: fs.readFileSync('certificateaes.pem')
+  cert: fs.readFileSync('certificateaes.pem'),
+  passphrase: 'informationsecurity'
 };
+
+var httpsServer = https.createServer(options, app);
+httpsServer.listen(port, function() {
+	console.log("Listening on " + port);
+});
 
 app.use(express.urlencoded());
 

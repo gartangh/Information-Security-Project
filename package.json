@@ -5,14 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node ./website/server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint",
+		"lintfix": "eslint --fix"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.16.4",
-		"https": "^1.0.0",
-		"node-rsa": "^1.0.5",
 		"csv": "^5.1.1",
 		"csv-parser": "^2.2.0",
 		"csv-writer": "^1.3.0",
@@ -20,5 +19,10 @@
 		"https": "^1.0.0",
 		"node-rsa": "^1.0.5",
 		"sha3": "^2.0.1"
+	},
+	"devDependencies": {
+		"eslint": "^5.16.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.17.2"
 	}
 }
