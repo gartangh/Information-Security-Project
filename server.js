@@ -117,10 +117,6 @@ app.post('/get-user-info', (req, res) => {
 });
 
 app.post('/vote', (req, res) => {
-	console.log("yolojieo");
-	var sess = req.session;
-	sess.destroy((err) => console.log("helaas"));
-	console.log(sess);
 
 
 	console.log(req.body);
@@ -130,8 +126,14 @@ app.post('/vote', (req, res) => {
 	api.addVote(req.body['regional-elections'], 'Regional');
 	api.addVote(req.body['european-elections'], 'Europe');
 
-	//res.send('<script>window.location.href="/voted.html";</script>');
+
+	console.log("yolojieo");
+	var sess = req.session;
+	sess.destroy((err) => console.log("helaas"));
+	console.log(sess);
+
 	res.redirect('voted.html');
+
 
 });
 
