@@ -58,14 +58,17 @@ app.post('/submit-form', (req, res) => {
 	console.log(hexHash);
 
 	// Log user in if id and hexHash is correct.
-	if (api.checkUserCredentials(id, hexHash) === true) {
-		console.log('Redirecting')
-		res.redirect('form.html');
-	}
-	else {
-		console.log('Wrong credentials')
-		res.redirect('index.html');
-	}
+	api.checkUserCredentials(id, hexHash).then((cred) => {
+		console.log(cred);
+		if (cred === true) {
+			console.log('Redirecting');
+			res.redirect('form.html');
+		}
+		else {
+			console.log('Wrong credentials');
+			res.redirect('index.html');
+		}
+	});
 
 	app.use(session({
 		secret: hexHash,
