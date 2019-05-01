@@ -39,17 +39,22 @@ const addUser = (natreg, first, last, pass) => {
 };
 
 async function checkUserCredentials(natreg, pass) {
-  let cred = false;
   await fs.createReadStream('data/users.csv')
     .pipe(csv())
     .on('data', (row) => {
+      console.log(natreg);
+      console.log(row.NationalRegistry);
+      console.log(pass);
+      console.log(row.Password);
       if (String(row.NationalRegistry) === String(natreg)) {
+        console.log('Correct id');
         if (String(row.Password) === String(pass)) {
-          cred = true;
+          console.log('Correct password');
+          return true;
         }
       }
     });
-  return cred;
+  return false;
 }
 
 const addVoter = (natreg) => {
