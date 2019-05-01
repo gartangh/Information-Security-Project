@@ -4,16 +4,22 @@ var https = require('https');
 var fs = require('fs');
 
 
-//const NodeRSA = require('node-rsa');
-//const key = new NodeRSA({b: 4096});
+const NodeRSA = require('node-rsa');
+const keyRSA = new NodeRSA({b: 4096});
 
 
-// This line is from the Node.js HTTPS documentation.
-var options = {
+// AES dictionary
+var optionsAES = {
   key: fs.readFileSync('privatekeyaes.pem'),
   cert: fs.readFileSync('certificateaes.pem'),
   passphrase: 'informationsecurity'
 };
+
+// RSA dictionary
+/*var optionsRSA = {
+	key: keyRSA,
+	cert:
+};*/
 
 //const crypto = require('crypto');
 
@@ -23,7 +29,7 @@ var port = process.env.PORT || 5000;
 	console.log("Listening on " + port);
 });*/
 
-var httpsServer = https.createServer(options, app);
+var httpsServer = https.createServer(optionsAES, app);
 httpsServer.listen(port, function() {
 	console.log("Listening on " + port);
 });
