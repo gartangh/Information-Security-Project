@@ -55,7 +55,6 @@ app.post('/submit-form', (req, res) => {
 		res.end();
 });
 
-var port = process.env.PORT || 5000;
 https.createServer(options, app).listen(port, function() {
 	console.log("Listening on " + port);
 });
