@@ -30,8 +30,6 @@ const addUser = (natreg, first, last, pass) => {
   // Hash returned as a hex-encoded string.
   var pass = hash.digest('hex');
   
-  console.log(pass);
-
   const csvWriter = createCsvWriter({
     path: 'data/users.csv',
     header: [
@@ -54,23 +52,20 @@ const addUser = (natreg, first, last, pass) => {
     .writeRecords(data);
 };
 
-async function checkUserCredentials(natreg, pass) {
-  await fs.createReadStream('data/users.csv')
-    .pipe(csv())
-    .on('data', (row) => {
-      console.log(natreg);
-      console.log(row.NationalRegistry);
-      console.log(pass);
-      console.log(row.Password);
+
+function checkUserCredentials(natreg, pass) {
+  return new Promise((resolve,reject) => {
+    let cred = false;
+    fs.createReadStream('data/users.csv').pipe(csv()).on('data', (row) => {
       if (String(row.NationalRegistry) === String(natreg)) {
-        console.log('Correct id');
+        console.log('Id correct');
         if (String(row.Password) === String(pass)) {
-          console.log('Correct password');
-          return true;
+          console.log('Pin correct');
+          cred = true;
         }
       }
-    });
-  return false;
+    }).on('end', () => {resolve(cred);});
+  });
 }
 
 const addVoter = (natreg) => {
@@ -113,6 +108,7 @@ const addParty = (party, election) => {
 const addVote = (party, election) => {
   const data = [];
   const path = `data/votes${election}.csv`;
+  console.log(party)
   fs.createReadStream(path)
     .pipe(csv())
     .on('data', (row) => {
@@ -155,6 +151,34 @@ const checkVoted = (natreg) => {
   return voted;
 };
 
+function getUserInfo (natreg){
+  return new Promise((resolve, reject) => {
+    fs.createReadStream('data/users.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      if (natreg == row.NationalRegistry){
+        user = {
+          NationalRegistry: row.NationalRegistry,
+          Firstname: row.Firstname,
+          Lastname: row.Lastname,
+        };
+
+        resolve(user);
+      }
+    })
+    .on('end', () => {
+        user = {
+        NationalRegistry: '',
+        Firstname: '',
+        Lastname: '',
+    };
+      resolve(user);
+    });
+
+
+  });
+}
+
 const getParties = () => {
   const parties = [];
   fs.createReadStream('data/voted.csv')
@@ -187,3 +211,4 @@ module.exports.addVote = addVote;
 module.exports.addUser = addUser;
 module.exports.addParty = addParty;
 module.exports.initFiles = initFiles;
+module.exports.getUserInfo = getUserInfo;

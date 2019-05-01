@@ -24,7 +24,10 @@ httpsServer.listen(port, function() {
 	console.log("Listening on " + port);
 });
 
+const bodyParser = require('body-parser');
 app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 /* serves main page */
 app.get("/", function(req, res) {
@@ -56,14 +59,17 @@ app.post('/submit-form', (req, res) => {
 	console.log(hexHash);
 
 	// Log user in if id and hexHash is correct.
-	if (api.checkUserCredentials(id, hexHash) === true) {
-		console.log('Redirecting')
-		res.redirect('form.html');
-	}
-	else {
-		console.log('Wrong credentials')
-		res.redirect('index.html');
-	}
+	api.checkUserCredentials(id, hexHash).then((cred) => {
+		console.log(cred);
+		if (cred === true) {
+			console.log('Redirecting');
+			res.redirect('form.html');
+		}
+		else {
+			console.log('Wrong credentials');
+			res.redirect('index.html');
+		}
+	});
 
 	app.use(session({
 		secret: hexHash,
@@ -78,3 +84,15 @@ app.post('/submit-form', (req, res) => {
 	// Reset hash.
 	hash.reset();
 });
+
+app.post('/vote', (req, res) => {
+	//console.log(req)
+	console.log(req.body)
+	console.log(req.body['national-federal-elections'])
+	api.addVote(req.body['national-federal-elections'], 'Federal')
+	api.addVote(req.body['regional-elections'], 'Regional')
+	api.addVote(req.body['european-elections'], 'Europe')
+	res.redirect('voted.html');
+
+});
+
