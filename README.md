@@ -45,3 +45,4 @@ Table for sprint 4: (ends on May 10)
 | Garben | May 9-10 | 5h 30m | Report. |
 | Olivier | May 10 | 30m | Report |
 | Jaime | May 9-10 | 5h | Report |
+| Bram | May 10 | 4h | Report |
