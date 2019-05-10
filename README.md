@@ -42,4 +42,4 @@ Table for sprint 4: (ends on May 10)
 | Bram, Garben, Jaime, Thomas | May 1 | 11h 15m | Team meeting, finished demo site. |
 | Olivier | May 1 | 9h 15m | Team meeting, finished demo site. |
 | Robbe | May 1 | 7h 45m | Team meeting, finished demo site. |
-| Garben | May 9 | 3h | Report. |
+| Garben | May 9-10 | 5h 30m | Report. |
