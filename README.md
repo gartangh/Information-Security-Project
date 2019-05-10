@@ -43,8 +43,8 @@ Table for sprint 4: (ends on May 10)
 | Olivier | May 1 | 9h 15m | Team meeting, finished demo site. |
 | Robbe | May 1 | 7h 45m | Team meeting, finished demo site. |
 | Garben | May 9-10 | 5h 30m | Report. |
-| Olivier | May 10 | 30m | Report |
-| Jaime | May 9-10 | 5h | Report |
-| Bram | May 10 | 4h | Report |
-| Thomas | May 9-10 | 3h 30m | Report |
-| Robbe | May 9 | 30m | Report |
+| Olivier | May 10 | 30m | Report. |
+| Jaime | May 9-10 | 5h | Report. |
+| Bram | May 10 | 4h | Report. |
+| Thomas | May 9-10 | 3h 30m | Report. |
+| Robbe | May 9 | 30m | Report. |
