@@ -46,3 +46,4 @@ Table for sprint 4: (ends on May 10)
 | Olivier | May 10 | 30m | Report |
 | Jaime | May 9-10 | 5h | Report |
 | Bram | May 10 | 4h | Report |
+| Thomas | May 9-10 | 4h | Report |
