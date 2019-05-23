@@ -12,16 +12,16 @@
 .phvr8t-x-x-144{ font-family: sans-serif;}
 .phvr8t-x-x-144{ font-family: sans-serif;}
 .phvr8t-x-x-144{ font-family: sans-serif;}
+.ectt-1440{font-size:116%; font-family: monospace;}
 .phvr8t-x-x-109{font-size:90%; font-family: sans-serif;}
 .phvr8t-x-x-109{ font-family: sans-serif;}
 .phvr8t-x-x-109{ font-family: sans-serif;}
 .phvr8t-x-x-109{ font-family: sans-serif;}
 .phvb8t-x-x-109{font-size:90%;font-family: sans-serif; font-weight: bold;}
 .phvb8t-x-x-109{font-family: sans-serif; font-weight: bold;}
-.ectt-1200{ font-family: monospace;}
-.phvb8t-x-x-120{font-family: sans-serif; font-weight: bold;}
-.phvb8t-x-x-120{font-family: sans-serif; font-weight: bold;}
 .phvro8t-x-x-120{ font-family: sans-serif;    font-style: oblique;}
+.phvb8t-x-x-120{font-family: sans-serif; font-weight: bold;}
+.phvb8t-x-x-120{font-family: sans-serif; font-weight: bold;}
 p.noindent { text-indent: 0em }
 td p.noindent { text-indent: 0em; margin-top:0em; }
 p.nopar { text-indent: 0em; }
@@ -146,5 +146,10 @@ table.multline, table.multline-star {width:100%;}
 td.gather {text-align:center; }
 table.gather {width:100%;}
 div.gather-star {text-align:center;}
+.epigraph, .epigraphhead, epigraphs {margin-left:60%}
+.epigraphhead .epigraph {margin-left:0%}
+.episource {text-align:right}
+.epigraphs table { width:40% ;}
+.epigraphs table div .episource { text-align:right; width:100%;}
 /* end css.sty */
 

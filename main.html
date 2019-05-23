@@ -1,7 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
-<head><title>Securing Web-based Electronic Elections</title> 
+<head><title> Securing Web-based Electronic Elections
+Information Security
+Group 15
+</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
 <meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
 <meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
@@ -16,31 +19,54 @@
                                                                                       
                                                                                       
 
-<h2 class="titleHead">Securing Web-based Electronic Elections</h2>
-                <div class="author" ><span 
+<h2 class="titleHead"> Securing Web-based Electronic Elections <br />
+Information Security <br />
+Group 15 <br />
+</h2>
+                        <div class="author" > <span 
 class="phvr8t-x-x-144">Bram De Smet</span>
-<br />     <span 
-class="phvr8t-x-x-109">Bram.DeSmet@UGent.be </span><br class="and" /><span 
-class="phvr8t-x-x-109">Robbe De Vilder</span>
-<br />    <span 
-class="phvr8t-x-x-109">Robbe.DeVilder@UGent.be </span><br class="and" /><span 
-class="phvr8t-x-x-109">Jaime Roelandts</span>
-<br />    <span 
-class="phvr8t-x-x-109">Jaime.Roelandts@UGent.be </span><br class="and" /><span 
-class="phvr8t-x-x-109">Garben Tanghe</span>
-<br />  <span 
-class="phvr8t-x-x-109">Garben.Tanghe@UGent.be </span><br class="and" /><span 
-class="phvr8t-x-x-109">Thomas Uyttenhove</span>
+<br />                            <span 
+class="ectt-1440">01502363</span>
+<br />                        <span 
+class="phvr8t-x-x-144">Jaime Roelandts</span>
+<br />                            <span 
+class="ectt-1440">01500322</span>
+<br />                      <span 
+class="phvr8t-x-x-144">Thomas Uyttenhove</span>
+<br />                  <span 
+class="ectt-1440">01406181 </span><br class="and" /><span 
+class="phvr8t-x-x-144">Robbe De Vilder</span>
+<br />                            <span 
+class="ectt-1440">01507157</span>
+<br />                        <span 
+class="phvr8t-x-x-144">Garben Tanghe</span>
+<br />                            <span 
+class="ectt-1440">01501457</span>
+<br />                     <span 
+class="phvr8t-x-x-144">Olivier Van den Nest</span>
+<br />                           <span 
+class="ectt-1440">01503573 </span><br class="and" /><span 
+class="phvr8t-x-x-144">&#x00A0;</span>
+<br />                                 <span 
+class="phvr8t-x-x-144">&#x00A0;</span>
 <br /><span 
-class="phvr8t-x-x-109">Thomas.Uyttenhove@UGent.be </span><br class="and" /><span 
-class="phvr8t-x-x-109">Olivier Van den Nest</span>
+class="phvr8t-x-x-144">1</span><sup class="textsuperscript"><span 
+class="phvr8t-x-x-109">th</span></sup> <span 
+class="phvr8t-x-x-144">Master of Science in Computer Science Engineering</span>
 <br />          <span 
-class="phvr8t-x-x-109">Olivier.VandenNest@UGent.be</span></div>
+class="phvr8t-x-x-144">Faculty of Engineering and Architecture</span><br /></div>
 <br />
 <div class="date" ><span 
-class="phvr8t-x-x-144">May 1, 2019</span></div>
+class="phvr8t-x-x-144">2018-2019</span></div>
 </div>
-<!--l. 30--><p class="noindent" >
+<!--l. 74--><p class="noindent" ><img 
+src="images/Logo_UGent.png" alt="PIC"  
+> <img 
+src="images/Logo_FEA.png" alt="PIC"  
+>
+                                                                                      
+                                                                                      
+<!--l. 78--><p class="noindent" >
                                                                                       
                                                                                       
 <div 
@@ -48,25 +74,25 @@ class="abstract"
 >
 <div class="center" 
 >
-<!--l. 33--><p class="noindent" >
-<!--l. 33--><p class="noindent" ><span 
+<!--l. 81--><p class="noindent" >
+<!--l. 81--><p class="noindent" ><span 
 class="phvb8t-x-x-109">Abstract</span></div>
-      <!--l. 34--><p class="noindent" ><span 
+      <!--l. 82--><p class="noindent" ><span 
 class="phvr8t-x-x-109">One might have noticed that Belgian politicians are currently in &#8220;election mode&#8221;.</span>
       <span 
-class="phvr8t-x-x-109">End of May 2019, the masses will set direction towards an Electoral Office to cast</span>
+class="phvr8t-x-x-109">At  the  end  of  May  2019,  the  masses  will  set  direction  towards  an  Electoral</span>
       <span 
-class="phvr8t-x-x-109">their vote. People need to volunteer to supervise the correct voting procedures,</span>
+class="phvr8t-x-x-109">Office to cast their vote. People need to volunteer to supervise the correct voting</span>
       <span 
-class="phvr8t-x-x-109">and all votes are manually counted. All of these procedures currently deployed</span>
+class="phvr8t-x-x-109">procedures, and all votes are manually counted. All of these procedures currently</span>
       <span 
-class="phvr8t-x-x-109">might seem like a task screaming for automation and benefiting from a web-based</span>
+class="phvr8t-x-x-109">deployed might seem like a task screaming for automation and benefiting from a</span>
       <span 
-class="phvr8t-x-x-109">approach.</span>
-      <!--l. 38--><p class="noindent" ><span 
-class="phvr8t-x-x-109">However, it is key to thoroughly analyze the viability of such a system first. Your</span>
+class="phvr8t-x-x-109">web-based approach.</span>
+      <!--l. 89--><p class="noindent" ><span 
+class="phvr8t-x-x-109">However, it is key to thoroughly analyze the viability of such a system first. The task</span>
       <span 
-class="phvr8t-x-x-109">task is to investigate what it would take, if at all possible, to implement a web-based</span>
+class="phvr8t-x-x-109">is to investigate what it would take, if at all possible, to implement a web-based</span>
       <span 
 class="phvr8t-x-x-109">electronic  voting  system  in  a  secure,  fair  and  democratic  manner.  The  goal  of</span>
       <span 
@@ -75,318 +101,408 @@ class="phvr8t-x-x-109">this assignment is to focus on the security aspects of on
 class="phvr8t-x-x-109">arguments against or in favour of such an approach in comparison to the traditional</span>
       <span 
 class="phvr8t-x-x-109">voting process.</span>
+      <!--l. 95--><p class="noindent" ><span 
+class="phvr8t-x-x-109">This is the report for the project of the course Information Security, given in the</span>
+      <span 
+class="phvr8t-x-x-109">Master of Science in Computer Science Engineering by Professor Eric Laermans.</span>
 </div>
 <h3 class="likesectionHead"><a 
  id="x1-1000"></a>Contents</h3>
 <div class="tableofcontents">
 <span class="sectionToc" >1 <a 
-href="#x1-20001" id="QQ2-1-2">Introduction</a></span>
+href="#x1-20001" id="QQ2-1-2">Introduction and assumptions</a></span>
 <br /><span class="sectionToc" >2 <a 
 href="#x1-30002" id="QQ2-1-3">Services</a></span>
 <br /><span class="sectionToc" >3 <a 
-href="#x1-40003" id="QQ2-1-4">Attacks</a></span>
+href="#x1-40003" id="QQ2-1-4">Attacks and their countermeasures</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.1 <a 
+href="#x1-50003.1" id="QQ2-1-5">Passive attacks</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.2 <a 
+href="#x1-60003.2" id="QQ2-1-6">Active attacks</a></span>
 <br /><span class="sectionToc" >4 <a 
-href="#x1-50004" id="QQ2-1-5">Countermeasures</a></span>
+href="#x1-70004" id="QQ2-1-7">Limitations and Vulnerabilities</a></span>
 <br /><span class="sectionToc" >5 <a 
-href="#x1-60005" id="QQ2-1-6">Limitations and Vulnerabilities</a></span>
+href="#x1-80005" id="QQ2-1-8">Security Mechanisms</a></span>
 <br /><span class="sectionToc" >6 <a 
-href="#x1-70006" id="QQ2-1-7">Security Mechanisms</a></span>
+href="#x1-90006" id="QQ2-1-9">Demo</a></span>
 <br /><span class="sectionToc" >7 <a 
-href="#x1-80007" id="QQ2-1-8">Conclusion</a></span>
+href="#x1-100007" id="QQ2-1-10">Conclusion</a></span>
 <br /><span class="sectionToc" ><a 
-href="#Q1-1-9">References</a></span>
+href="#Q1-1-11">References</a></span>
+                                                                                      
+                                                                                      
 </div>
-<!--l. 45--><p class="noindent" >
+<!--l. 102--><p class="noindent" >
                                                                                       
                                                                                       
 <h3 class="sectionHead"><span class="titlemark">1    </span> <a 
- id="x1-20001"></a>Introduction</h3>
-<!--l. 4--><p class="noindent" >Login using eID, assuming that the country has an eID system.
-<!--l. 6--><p class="noindent" >A Belgian citizen, should use his identity card to log in on to the website. Once
-logged-in, he could make his vote and save it. The website will keep a list of all
-votes, while keeping it anonymous and it will also keep a list of the people that did
-vote.
-<!--l. 10--><p class="noindent" >The following assumptions are made:
-      <ul class="itemize1">
-      <li class="itemize">A voter can only cast their vote once.
-      </li>
-      <li class="itemize">Every voter has access to an eID reader or is welcome to use a voting system
-      provided by the government.
-      </li>
-      <li class="itemize">No proxy voting can be performed.
-      </li>
-      <li class="itemize">The network will be available during the voting period without interruption.
-      </li>
-      <li class="itemize">The power supply won&#8217;t be interrupted.</li></ul>
-<!--l. 19--><p class="noindent" >The proof-of-concept demonstration website is created using Node.js and the
-Express package. For the database MongoDB is used with the <span 
-class="phvb8t-x-x-120">mongodb </span>package
-(<a 
-href="https://mongodb.github.io/node-mongodb-native/" class="url" ><span 
-class="ectt-1200">https://mongodb.github.io/node-mongodb-native/</span></a>). To ensure security and encryption
-the following packages are used:
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">crypto </span>(built-in) (<a 
-href="https://nodejs.org/api/crypto.html" class="url" ><span 
-class="ectt-1200">https://nodejs.org/api/crypto.html</span></a>)
-      </li>
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">https </span>(<a 
-href="https://nodejs.org/api/https.html" class="url" ><span 
-class="ectt-1200">https://nodejs.org/api/https.html</span></a>)
-      </li>
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">node-rsa </span>(<a 
-href="https://www.npmjs.com/package/node-rsa" class="url" ><span 
-class="ectt-1200">https://www.npmjs.com/package/node-rsa</span></a>)</li></ul>
-<!--l. 1--><p class="noindent" >
+ id="x1-20001"></a>Introduction and assumptions</h3>
+<!--l. 3--><p class="noindent" >As an introduction to this report, some explanation of the system is given and some
+assumptions about the environment is sketched.
+<!--l. 5--><p class="noindent" >A Belgian citizen will need to use his identity card and PIN-code to be authenticated on the
+website, by using an eID viewer. Once logged in, they can cast their vote and finalize it.
+The server behind the website maintains a list of all cast votes in an anonymous
+fashion. It will also keep a list of the people that voted. The server will thus know
+who voted for which party, but this information will not be saved together in the
+database.
+<!--l. 11--><p class="noindent" >The first assumption that was made, is that the country makes use of eID. Each voter must
+have their eID card at their disposal, together with an eID card reader. The reader could
+either be property of the user or the voter must have the opportunity to use a voting system
+provided by the government. Authentication via <span 
+class="phvro8t-x-x-120">itsme </span>could be used to facilitate the
+process.<br 
+class="newline" />The second assumption is that a voter can only cast their vote once. Just like in the current
+voting system, multiple votes from the same user are not allowed.<br 
+class="newline" />A third assumption is that no proxy voting can be performed. With this kind of system it is
+also a lot easier to vote from the hospital, work or from abroad. This eases up the
+authentication process a lot.<br 
+class="newline" />To end, the network must be available and power supply must not be interrupted during the
+voting period. Ideally the system will be hosted in a Tier-III to Tier-IV data centre [<span 
+class="phvb8t-x-x-120">? </span>].
+Anything above that would be overkill. For example, keeping a service up and running during
+a flood does not make a lot of sense, since the voters will have other things to worry
+about.
+                                                                                      
+                                                                                      
 <h3 class="sectionHead"><span class="titlemark">2    </span> <a 
  id="x1-30002"></a>Services</h3>
-<!--l. 6--><p class="noindent" >
+<!--l. 4--><p class="noindent" >In this section, the six required security services for the online election system are discussed
+and compared to the current voting system. These services are confidentiality,
+authentication, access control and authorization, data integrity, non-repudiation, and
+availability and accessibility.
+<!--l. 9--><p class="noindent" >
       <dl class="enumerate"><dt class="enumerate">
    1. </dt><dd 
-class="enumerate"><span 
-class="phvb8t-x-x-120">Confidentiality</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">The vote should be private.
-                                                                                      
-                                                                                      
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">Backtracking to the author should not be possible.</dd></dl>
+class="enumerate">To  ensure  <span 
+class="phvb8t-x-x-120">confidentiality</span>,  votes  should  be  private.  The  voter&#8217;s  information
+      should be concealed and it must be impossible to track a vote back to its voter.
+      In current voting systems, the voter&#8217;s identity is also concealed since he has to
+      register his attendance independently of his vote.
       </dd><dt class="enumerate">
    2. </dt><dd 
-class="enumerate"><span 
-class="phvb8t-x-x-120">Authentication</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">Only one vote per person can be cast.
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">Someone should not be be able to vote on one&#8217;s behalf.</dd></dl>
+class="enumerate">In  order  to  guarantee  the  authenticity  of  communication,  <span 
+class="phvb8t-x-x-120">authentication  </span>is
+      needed.  Voters  should  only  be  able  to  only  vote  once  and  they  need  to  do
+      that in their own name. In the current system this is enforced by requiring ID
+      confirmation and maintaining a list of voters in the voting offices. Proxy votes can
+      be performed in certain cases, but some form of authentication is still required.
       </dd><dt class="enumerate">
    3. </dt><dd 
-class="enumerate"><span 
-class="phvb8t-x-x-120">Access control / authorization</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">The user must be entitled to vote.
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">Voting should happen within allowed time span.</dd></dl>
+class="enumerate">To  determine  which  user  may  access  which  resources,  <span 
+class="phvb8t-x-x-120">access  control  /</span>
+      <span 
+class="phvb8t-x-x-120">authorization </span>is enforced. People who have no voting rights should not be able
+      to vote. Their login attempts can be revoked or their votes can be ignored at the
+      server side. Furthermore, the votes must be placed within a certain time frame. It
+      must be impossible to cast a vote outside of the assigned time span. Again, this
+      can be done on the client side by revoking login attempts or at the server side
+      by ignoring early and late votes. Currently, all of this is achieved by maintaining
+      a list of allowed voters in the voting offices and opening and closing the office at
+      certain points in time.
       </dd><dt class="enumerate">
    4. </dt><dd 
-class="enumerate"><span 
-class="phvb8t-x-x-120">Data integrity</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">The table is sticky, a cast vote cannot be changed.
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">One&#8217;s vote should not be counted twice.</dd></dl>
+class="enumerate">To ensure <span 
+class="phvb8t-x-x-120">data integrity</span>, cast votes should be final and unchangeable. Votes
+      also  should  only  be  counted  once.  In  the  current  system  this  is  enforced  by
+      multiple assignees who are appointed to monitor the cast voting ballots.
       </dd><dt class="enumerate">
    5. </dt><dd 
 class="enumerate"><span 
-class="phvb8t-x-x-120">Non-repudiation</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">Whether or not a person has voted, not which party was voted for.
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">From government&#8217;s perspective a vote can not be considered invalid if it has
-           been correctly cast.
-           </dd><dt class="enumerate">
-       (c) </dt><dd 
-class="enumerate">The user should have a certificate to prove he has voted (in case the server
-           database crashes)...
-               <dl class="enumerate"><dt class="enumerate">
-            <span class="roman-numeral">i</span>. </dt><dd 
-class="enumerate">The server makes a certificate with the users credentials.
-               </dd><dt class="enumerate">
-            <span class="roman-numeral">ii</span>. </dt><dd 
-class="enumerate">The server signs this certificate using his private key.
-               </dd><dt class="enumerate">
-           <span class="roman-numeral">iii</span>. </dt><dd 
-class="enumerate">The server encrypts the certificate using the users public key.
-               </dd><dt class="enumerate">
-           <span class="roman-numeral">iv</span>. </dt><dd 
-class="enumerate">The user receives the certificate for later proof.</dd></dl>
-           </dd></dl>
-                                                                                      
-                                                                                      
+class="phvb8t-x-x-120">Non-repudiation</span>: Voters should be able to prove they have cast a valid vote. In
+      the current system, this is done by providing a stamp when voted. The online
+      system will provide the user with a certificate when they have voted validly. This is
+      done in 3 steps. First, a certificate is created with the user&#8217;s credentials. Secondly,
+      it is signed with the private key of the server. Finally, it is encrypted using the
+      user&#8217;s  public  key.  It  can  then  be  printed  by  the  user  or  stored  digitally  on  his
+      personal device.
       </dd><dt class="enumerate">
    6. </dt><dd 
-class="enumerate"><span 
-class="phvb8t-x-x-120">Availability</span>
-           <dl class="enumerate"><dt class="enumerate">
-       (a) </dt><dd 
-class="enumerate">Must be accessible during the complete voting day, since cast votes can&#8217;t
-           be lost.
-           </dd><dt class="enumerate">
-       (b) </dt><dd 
-class="enumerate">The websites/databases will be decentralized. Multiple servers will set-up,
-           in  case  a  server  is  down  the  other  can  be  accessed  and  the  voting  can
-           continue.
-           </dd><dt class="enumerate">
-       (c) </dt><dd 
-class="enumerate">Some public spaces should be provided with computers for people that do
-           not have direct access to an internet connection.</dd></dl>
-      </dd></dl>
-<!--l. 1--><p class="noindent" >
+class="enumerate">The  voting  procedure  should  be  <span 
+class="phvb8t-x-x-120">available  </span>and  <span 
+class="phvb8t-x-x-120">accessible  </span>for  all  legitimate
+      voters. In the current system this is done by providing multiple voting locations
+                                                                                      
+                                                                                      
+      and  options  for  people  who  are  obstructed.  The  online  system  will  use  a
+      decentralized  approach  to  decrease  the  chance  on  failures  and  increase  the
+      chance of resisting an attack. Supervised, public computer spaces should also
+      be provided for people who have no personal access to the online voting service.
+      These should be configured to not save any personal information of the voters
+      and should allow voting to happen in a closed-off environment. The time frame in
+      which votes can be cast can be lengthened, since there will be no need to count
+      votes manually afterward.</dd></dl>
+<!--l. 107--><p class="noindent" >
+                                                                                      
+                                                                                      
 <h3 class="sectionHead"><span class="titlemark">3    </span> <a 
- id="x1-40003"></a>Attacks</h3>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">Passive attacks</span>
-           <dl class="enumerate"><dt class="enumerate">
-       1. </dt><dd 
-class="enumerate">Eavesdropping
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">A third party wants to leak the current intermediate election results to
-               influence the further voting process.</dd></dl>
-           </dd><dt class="enumerate">
-       2. </dt><dd 
-class="enumerate">Traffic analysis
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate"><span 
-class="phvro8t-x-x-120">Not applicable.</span></dd></dl>
-           </dd></dl>
-      </li>
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">Active attacks</span>
-           <dl class="enumerate"><dt class="enumerate">
-       1. </dt><dd 
-class="enumerate">Message insertion/modification:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">A third party want to change votes to a certain political party.</dd></dl>
-           </dd><dt class="enumerate">
-       2. </dt><dd 
-class="enumerate">Impersonation/masquerade:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">A third party want to repeat votes on a certain political party.
+ id="x1-40003"></a>Attacks and their countermeasures</h3>
+<!--l. 4--><p class="noindent" >During other elections (such as the American elections) a lot of stipulations where made
+about possible attacks of the Russians in order to change the outcome of the elections.
+This system should of course be designed to prevent such things from happening.
+There are different possibilities to attack this system and different ways to cope with
+them. They are discussed below in two categories, namely passive versus active
+attacks.
+<!--l. 9--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.1    </span> <a 
+ id="x1-50003.1"></a>Passive attacks</h4>
+<!--l. 12--><p class="noindent" >First of all, the system should prevent <span 
+class="phvb8t-x-x-120">eavesdropping</span>. Allowing attackers to intercept
+votes would compromise anonymity and could lead to intermediate results leaking
+in order to influence other voters. Preventing this type of attack is done by using
+Transport Layer Security (TLS) to encrypt cast votes as they are transmitted to the
+server.
+<!--l. 17--><p class="noindent" >The second type of passive attacks, <span 
+class="phvb8t-x-x-120">traffic analysis attacks</span>, can be ignored since everyone
+knows at what time public elections take place. An attacker that analyses the traffic
+of a home, city, province, etc. will be limited to observing encrypted messages
+going back and forth like expected, but they will not be able to do anything with that
+information.
+<!--l. 20--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.2    </span> <a 
+ id="x1-60003.2"></a>Active attacks</h4>
+<!--l. 23--><p class="noindent" >A first active way to attack the system could be by <span 
+class="phvb8t-x-x-120">message insertion/modification</span>.
+Someone could for example change the transmitted vote of a person from party A to party B.
+This is also avoided by using TLS. As the traffic is encrypted and the signatures have to
+match, it is very hard to modify messages between transmission at the client and
+registering the vote at the server. Because TLS uses SHA2 or higher, the chance of a
+random generated signature to collide with the signature of a message is very
+low.
+<!--l. 30--><p class="noindent" ><span 
+class="phvb8t-x-x-120">Impersonation/masquerade </span>is a second type of active attacks. In this case, a malicious
+third party could pretend to be other voters with the goal of voting on their behalf. This attack
+should be mitigated by the use of the eID readers: a digital signature can be created with the
+private key of the eID to authenticate the voter. Though there still exist risks, e.g.
+extortion or threatening of the user by an attacker, deploying this countermeasure will
+assure that the connecting user is in possession of the eID card of the voter in
+question and knows their pin. This will rule out the most common and large scale
+attacks.
                                                                                       
                                                                                       
-               </dd><dt class="enumerate">
-           (b) </dt><dd 
-class="enumerate">A third party want to reduce the votes for certain political parties.</dd></dl>
-           </dd><dt class="enumerate">
-       3. </dt><dd 
-class="enumerate">Replay:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">A third party want to repeat votes on a certain political party.</dd></dl>
-           </dd><dt class="enumerate">
-       4. </dt><dd 
-class="enumerate">(Distributed) Denial-of-Service ((D)Dos):
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">A third party wants to boycott the elections.</dd></dl>
-           </dd><dt class="enumerate">
-       5. </dt><dd 
-class="enumerate">Hijacking (taking over existing connection):
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Man-in-the-middle  (MITM)  attacks:  a  third  party  pretends  to  be  the
-               voting website to vote with the visitors credentials.
-               </dd><dt class="enumerate">
-           (b) </dt><dd 
-class="enumerate">Man-in-the-browser (MITB) attacks: malware that attacks the website in
-               the user&#8217;s browser.</dd></dl>
-           </dd></dl>
-      </li></ul>
-<!--l. 1--><p class="noindent" >
+<!--l. 37--><p class="noindent" >Active <span 
+class="phvb8t-x-x-120">replay attacks </span>are a third possible issue, as an attacker could replay the
+vote itself. Without a solid solution for this problem, extra votes could be inserted
+in the database and voting results could be severely skewed. Fortunately, TLS
+has this covered as well. It blocks replay using Message Authentication Codes
+(MACs). On the server side, packages of persons that voted before could also be
+dropped.
+<!--l. 44--><p class="noindent" >Fourthly, the system could be flooded by a <span 
+class="phvb8t-x-x-120">(Distributed) Denial of Service ((D)DoS) attack</span>
+which could cause the services to crash. First of all, a Tier-III data center can handle quite
+some traffic. Secondly, the website will be protected with a (D)DoS protection service, which
+should filter invasive messages of that kind.
+<!--l. 48--><p class="noindent" >A fifth, technical attack could be an attacker <span 
+class="phvb8t-x-x-120">hijacking </span>the connection between the user and
+the website. If an attacker takes over the connection after the user is logged in, they could
+cast a vote on behalf of that user. Again, TLS solves this threat, because the connection is
+encrypted. The attacker will not be able to generate the right packets in order to continue the
+communication.
+<!--l. 53--><p class="noindent" >A more technical attack would be the <span 
+class="phvb8t-x-x-120">man-in-the-middle (MITM) attack</span>. In this case, the
+attacker makes a fake copy of the website, where a user can log in as well. This fake website
+could then pass trough the credentials and set up the connection to the legitimate website.
+Once connected, the attackers can cast a vote in their name: the user will think they have
+voted but the vote was really cast by the attackers. This is difficult to mitigate, as the average
+voter is not well educated to see and avoid those websites. For this reason, TLS 1.3 could be
+used in order to try to avoid this in the first place. TLS 1.3 blocks connections if a website is
+not legitimate. Another way to avoid users surfing on the attackers&#8217; websites is to educate
+the voter through the voting ticket they received. This could warn them about the
+aforementioned issue and could contain a QR-code to redirect the user to the official
+website.<br 
+class="newline" />The <span 
+class="phvb8t-x-x-120">man-in-the-browser (MITB) attack </span>is a related attack, where client-side malware could
+alter the voting page and cast another vote than the user specified. Apart from encouraging
+the use of a safe browser, e.g. Chrome, or anti-virus software, this risk is hard to combat for
+all of the users.
+<!--l. 66--><p class="noindent" >Attacks that are even more challenging to counter, are the ones that use <span 
+class="phvb8t-x-x-120">social</span>
+<span 
+class="phvb8t-x-x-120">engineering</span>, e.g. <span 
+class="phvb8t-x-x-120">phishing</span>. These attacks are made less likely because the system expects
+the user to use their eID card reader in order to log in. Without the eID card, it is difficult to
+get the access token to log in to the system.
+<!--l. 70--><p class="noindent" >A last possible threat would be that the servers are compromised. Since Forward Secrecy
+(FS) is mandatory in TLS version 1.3, not all messages can be decrypted at once in case the
+private key of the server is available to a hacker [<span 
+class="phvb8t-x-x-120">? </span>].
+                                                                                      
+                                                                                      
 <h3 class="sectionHead"><span class="titlemark">4    </span> <a 
- id="x1-50004"></a>Countermeasures</h3>
-      <ul class="itemize1">
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">Passive attacks</span>
-           <dl class="enumerate"><dt class="enumerate">
-       1. </dt><dd 
-class="enumerate">Eavesdropping
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Encryption of authentication data and the user&#8217;s vote.</dd></dl>
-           </dd><dt class="enumerate">
-       2. </dt><dd 
-class="enumerate">Traffic analysis
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate"><span 
-class="phvro8t-x-x-120">Not applicable.</span></dd></dl>
-           </dd></dl>
-      </li>
-      <li class="itemize"><span 
-class="phvb8t-x-x-120">Active attacks</span>
+ id="x1-70004"></a>Limitations and Vulnerabilities</h3>
+<!--l. 4--><p class="noindent" >Many of the imminent risks of an online voting can be eliminated, yet the system
+described in this report has some flaws. These flaws will be further looked into in this
+section.
+<!--l. 6--><p class="noindent" >Firstly, just like in the current voting system, trusted people with authorized access to the
+votes can easily modify them and thus alter the results. Whereas social control prevents such
+things from happening in the current system, the online system has no constructions to
+prevent this. A server admin could alter the voting database without anyone ever
+knowing. This is of course a huge issue that has not been mitigated by the designed
+system.
+<!--l. 9--><p class="noindent" >As mentioned in the previous section, a second vulnerability is the use of extortion
+and threatening but also social hacking to acquire a voter&#8217;s eID data. Though the
+current system again has some form of social control to make sure the voter is
+really who they claim to be when they register themselves in the voting office, the
+online system has no way to guarantee this. Biometric identification methods may
+come to mind, but these have been shown to not be as safe as one might think [<span 
+class="phvb8t-x-x-120">?</span>
+].
+<!--l. 11--><p class="noindent" >A third limitation is that a stable power source and internet connection needs to be
+established, like any application would require. By decentralizing the voting procedure to the
+voters&#8217; homes with limited power and internet stability, these requirements can not be
+guaranteed by the system itself.
+<!--l. 13--><p class="noindent" >The database of votes behind the server is an important fourth vulnerability. The system&#8217;s
+administrator is assumed not to log the activity of the users or tamper with the cast
+votes. In the current election system, this is prevented by having multiple people
+providing social control during the voting and counting procedure, such that no
+fraud is committed and voting happens anonymously. Having a team of system
+administrators in the online system to provide the same supervision would be highly
+impractical. If an administrator with malintent or an attacker gains access to the
+database, the back-end code could be changed to alter, drop or display the incoming
+traffic and thus influence the voting procedure. This would of course mean that the
+important requirements like anonymity, data integrity and data confidentiality could be
+harmed.
+<!--l. 20--><p class="noindent" >Last of all, because a vote and the voter are sent within a single message, an attacker could
+store the IP-traffic due to the voting and later analyze and decrypt it. The votes are
+transmitted this way to prevent replay attacks and keeping the voting procedure fair, but
+interception of this data would compromise the anonymity of the voting. By the way, many
+people post their vote on social media such as Facebook or Twitter, which compromises their
+anonymity anyway.
                                                                                       
                                                                                       
-           <dl class="enumerate"><dt class="enumerate">
-       1. </dt><dd 
-class="enumerate">Message insertion/modification:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Digital signature of the user.</dd></dl>
-           </dd><dt class="enumerate">
-       2. </dt><dd 
-class="enumerate">Impersonation/masquerade:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Digital signature with private key from eID.</dd></dl>
-           </dd><dt class="enumerate">
-       3. </dt><dd 
-class="enumerate">Replay:
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Server-side package dropping based on presence of entry in database.</dd></dl>
-           </dd><dt class="enumerate">
-       4. </dt><dd 
-class="enumerate">(Distributed) Denial-of-Service ((D)Dos):
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">Use third party service that prevents this issue to redirect traffic to the
-               voting application.</dd></dl>
-           </dd><dt class="enumerate">
-       5. </dt><dd 
-class="enumerate">Hijacking (taking over existing connection):
-               <dl class="enumerate"><dt class="enumerate">
-           (a) </dt><dd 
-class="enumerate">SSL/TLS certificates used in the HTTPS protocol.</dd></dl>
-           </dd></dl>
-      </li></ul>
-<!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">5    </span> <a 
- id="x1-60005"></a>Limitations and Vulnerabilities</h3>
+ id="x1-80005"></a>Security Mechanisms</h3>
+<!--l. 4--><p class="noindent" >A small summary of all security mechanisms, used in the theoretical system, is
+provided.
       <ul class="itemize1">
-      <li class="itemize">Tables  in  database  with  votes  can  easily  be  altered  by  trusted  people  with
-      authorized access. This is no different from the current voting system and this
-      problem has not been solved by this implementation.
+      <li class="itemize">The Cloudflare&#8217;s (D)DoS protection is used, to prevent (D)DoS attacks.
       </li>
-      <li class="itemize">Someone can still steal a user&#8217;s eID and threaten them in order to get their PIN
-      code.
+      <li class="itemize">eID is used by a card reader or itsme, in order to authenticate the user.
       </li>
-      <li class="itemize">The system, as any web application, can only work if a stable power source and
-      internet connection can be provided to the user. This responsibility does not lie
-      with us, but with the power and telecom providers in Belgium.</li></ul>
+      <li class="itemize">A Hypertext Transfer Protocol Secure (HTTPS) connection is set-up using TLS
+      1.3.
+      </li>
+      <li class="itemize">The RSA encryption, used for the TLS connection, is conforming to PKCS #1
+      version 2 and uses the OAEP encryption scheme, the SHA-256 signing scheme
+      and 4096 bits. Based on this key, a certificate signing request and a certificate is
+      made with OpenSSL.
+      </li>
+      <li class="itemize">SHA3-512 is used for password hashing.
+      </li>
+      <li class="itemize">Ideally a distributed database would be used, with technologies such as MySQL.
+      It is important that the used technology is able to cope with transactions to make
+      sure that each vote is counted and no votes are lost due to concurrency in the
+      database. The database should keep track of the votes that have been casted
+      and the people that have cast their vote, but this has to be done separately. If the
+      votes and voters were stored together, anonymity would be lost.</li></ul>
+<!--l. 113--><p class="noindent" >
                                                                                       
                                                                                       
-<!--l. 1--><p class="noindent" >
 <h3 class="sectionHead"><span class="titlemark">6    </span> <a 
- id="x1-70006"></a>Security Mechanisms</h3>
-<!--l. 4--><p class="noindent" >Cloudflare (D)DoS protection.
-<!--l. 6--><p class="noindent" >HTTPS connection using TLS 1.2 or 1.3.
+ id="x1-90006"></a>Demo</h3>
+<!--l. 3--><p class="noindent" >The proof-of-concept demonstration website is created using <span 
+class="phvb8t-x-x-120">Node.js </span>[<span 
+class="phvb8t-x-x-120">? </span>] and the <span 
+class="phvb8t-x-x-120">Express</span>
+package [<span 
+class="phvb8t-x-x-120">? </span>]. For the database, Comma Separated Values (CSV) files are used by the <span 
+class="phvb8t-x-x-120">csv</span>
+package [<span 
+class="phvb8t-x-x-120">? </span>]. In reality, a transactional database is needed, but this suffices for
+proof-of-concept purposes. To ensure security and encryption, the following packages are
+used:
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">crypto </span>is a built-in package in Node.js, that takes care of basic security for web
+      servers [<span 
+class="phvb8t-x-x-120">? </span>].
+      </li>
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">https </span>is a package, used to create secure connections over HTTPS [<span 
+class="phvb8t-x-x-120">? </span>].
+      </li>
+      <li class="itemize"><span 
+class="phvb8t-x-x-120">node-rsa </span>is a package that enables the creation of a public and private key pair,
+      needed for RSA encryption [<span 
+class="phvb8t-x-x-120">? </span>].
+      </li>
+      <li class="itemize">The package <span 
+class="phvb8t-x-x-120">sha3 </span>is used on the server side to hash passwords with SHA3,
+      before they are stored in the database [<span 
+class="phvb8t-x-x-120">? </span>].</li></ul>
+<!--l. 11--><p class="noindent" >The demo of the website starts after going through the (D)DoS protection (such as
+Cloudflare&#8217;s Advanced DDoS Attack Protection [<span 
+class="phvb8t-x-x-120">? </span>]) and ends before creating a certificate for
+the voter.
+<!--l. 14--><p class="noindent" >The differences in security mechanisms, used in the demo website, are summed up
+below.
+      <ul class="itemize1">
+      <li class="itemize">As a practical consideration, no eID is used in the demonstration. Instead, testers
+      can log in using their UGent ID and the PIN code 9000. This simulates the eID
+      token and the passport&#8217;s PIN code respectively.
+      </li>
+      <li class="itemize">TLS 1.2 is used instead of TLS 1.3, since no package was found to support the
+      newer version of the standard.
+      </li>
+      <li class="itemize">The  RSA  encryption  still  uses  4096  bits,  but  is  now  password  protected
+      with  AES256  encryption.  A  public  exponent  of  65537  is  chosen.  The  created
+      certificate will remain valid until April 30, 2020.</li></ul>
+<!--l. 115--><p class="noindent" >
+                                                                                      
+                                                                                      
 <h3 class="sectionHead"><span class="titlemark">7    </span> <a 
- id="x1-80007"></a>Conclusion</h3>
-<!--l. 55--><p class="noindent" ><a 
+ id="x1-100007"></a>Conclusion</h3>
+<!--l. 4--><p class="noindent" >When designing and implementing the system described throughout this report, there
+are many difficulties to overcome. However, current online systems like banking
+systems, that are safe enough for daily use, show that overcoming these difficulties is
+feasible. Of course, companies always want to be trust by its customers, therefore
+everything must work as it should. A lot of recent cryptographic standards have
+been proven to be quite secure, and as long as these standards are being used to
+implement the security mechanisms, there are no big threats concerning technical
+hacking.
+<!--l. 7--><p class="noindent" >However, for the online election system, the biggest threat are the humans operation the
+system. As a chain is no stronger than its weakest link, the system can become very
+vulnerable to attacks because of the voters and operators that use the system. In the
+traditional elections, a single person cannot be trusted. Everything is done in a transparent
+way by using multiple people in the election chamber, multiple people counting the votes
+instead of counting computers, etc. When switching to an online voting system, this chain of
+trust gets lost. A person deposits their vote via a black box system that is not transparent at
+all, they do not know what is happening behind the scenes and they should not trust the
+software just like that. Bad intentions or strong political preferences can be programmed
+in the system without the voters even knowing. Beside, attacking the traditional
+voting system does not scale well because of the social aspect. The impact that a
+single bad person can cause to the results is limited. But if a smart hacker find a
+way to bypass the online system, only one person is needed to control the whole
+elections.
+<!--l. 13--><p class="noindent" >It should also be said that technical issues that can arise during the procedure should not be
+ignored. As the widespread issues with voting computers have shown in the past, even
+government organized systems appeared not to be as stable as expected. The system
+described in this report would go a step further and decentralize the voting to the homes of
+the people. As was already mentioned, the limited power and internet guarantees of the
+average voter could cause a lot of issues.
+<!--l. 18--><p class="noindent" >Though we initially thought online elections showed some potential, listing up the limitations
+and vulnerabilities made us realize it would actually be a terrible idea. Even with a well
+thought out technological and cryptographic base, it would be impossible for the designed
+system to completely fulfill all expectations and match the security and trust of the current
+physical election system.
+     <!--l. 22--><p class="noindent" ><span 
+class="phvro8t-x-x-120">&#8220;If a government ever promises to use [electronic voting], hope they don&#8217;t manage it</span>
+     <span 
+class="phvro8t-x-x-120">before your get a chance to vote them out.&#8221;</span>
+<!--l. 23--><p class="noindent" >                                 &#8211;&#x00A0;Tom Scott, <span 
+class="phvro8t-x-x-120">Why Electronic Voting is a BAD Idea</span>&#x00A0;[<span 
+class="phvb8t-x-x-120">?</span>
+]&#x00A0;&#x00A0;
+<!--l. 119--><p class="noindent" >
+                                                                                      
+                                                                                      
+<!--l. 120--><p class="noindent" ><a 
  id="likesection.1"></a> <a 
- id="Q1-1-9"></a>
+ id="Q1-1-11"></a>
  
 </body></html> 
 
+                                                                                      
+                                                                                      
                                                                                       
 
 
